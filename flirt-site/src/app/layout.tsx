@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Bodoni_Moda, Jost, Italianno } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { site, fullAddress } from "@/data/site";
+import { site } from "@/data/site";
 import { verbatimTestimonials, aggregate } from "@/data/testimonials";
 import { services } from "@/data/services";
 import Navbar from "@/components/Navbar";
@@ -137,10 +137,13 @@ const websiteJsonLd = {
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Eyelash Extensions in ${site.address.city}, CA`,
+    // Keyword first, brand second, and under ~60 characters so Google shows
+    // the whole thing. The full business name still appears in the template
+    // for every other route.
+    default: `Eyelash Extensions in ${site.address.city}, CA | ${site.shortName}`,
     template: `%s | ${site.shortName}`,
   },
-  description: site.description,
+  description: site.metaDescription,
   applicationName: site.name,
   robots: {
     index: true,
@@ -155,25 +158,38 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     title: site.name,
-    description: site.description,
+    description: site.metaDescription,
     url: site.url,
     siteName: site.name,
     locale: "en_US",
     type: "website",
+    // A purpose-built 1200x630 card (scripts/make-brand-assets.mjs). The hero
+    // photo is a 2:3 portrait — handing it straight to a platform that crops
+    // to 1.91:1 produced a band of someone's forearm.
     images: [
       {
-        url: "/images/hero-lounge.jpg",
+        url: "/images/og-card.jpg",
         width: 1200,
         height: 630,
-        alt: site.hero.bgImageAlt,
+        alt: `${site.name} — ${site.address.city}, California`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: site.name,
-    description: site.description,
-    images: ["/images/hero-lounge.jpg"],
+    description: site.metaDescription,
+    images: ["/images/og-card.jpg"],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   ...(GSC ? { verification: { google: GSC } } : {}),
   other: {
@@ -206,12 +222,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
 
         <Navbar />
-        {/* pb-16 on mobile clears the fixed book/call bar so the last element
-            on every page is not sitting underneath it. */}
-        <main id="main" className="flex-1 pb-16 lg:pb-0">
+        <main id="main" className="flex-1">
           {children}
         </main>
         <Footer />
+        {/* Renders its own spacer, so the clearance for the fixed bar exists
+            only on the routes where the bar exists. Padding `main` instead
+            left a dead 64px gap above the footer on /book, where the bar is
+            deliberately hidden. */}
         <MobileBookBar />
 
         {GA_ID && (
@@ -230,7 +248,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </Script>
           </>
         )}
-        <span className="sr-only">{fullAddress}</span>
       </body>
     </html>
   );

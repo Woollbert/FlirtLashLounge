@@ -33,6 +33,10 @@ export default function Logo({ className = "", tone = "dark", compact = false }:
         // In the navbar on every route — never lazy-load it, or it pops in
         // after first paint.
         priority
+        // Without this, Next sizes the srcset off the 650px intrinsic width
+        // and ships a 750px-wide PNG into a ~60px box on every single page.
+        // Declaring the real display width drops it to the 96px encode.
+        sizes="70px"
         className="h-[2.05rem] md:h-[2.3rem] w-auto"
       />
       {!compact && (

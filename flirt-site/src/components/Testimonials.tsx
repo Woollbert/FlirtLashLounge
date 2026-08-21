@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import { site } from "@/data/site";
@@ -29,6 +28,7 @@ export default function Testimonials() {
           eyebrow={copy.eyebrow}
           line1={copy.headlineLine1}
           script={copy.headlineScript}
+          accent="italic"
           intro={copy.intro}
         />
 
@@ -64,7 +64,7 @@ export default function Testimonials() {
             href={site.social.yelp}
             target="_blank"
             rel="noopener noreferrer"
-            className="link-underline font-sans text-[0.7rem] uppercase tracking-wide2 text-clay"
+            className="link-underline inline-block py-2 font-sans text-[0.7rem] uppercase tracking-wide2 text-clay"
           >
             Read every review on Yelp
           </a>

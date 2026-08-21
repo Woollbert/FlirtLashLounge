@@ -3,16 +3,30 @@ import Reveal from "@/components/Reveal";
 import { gallery, type GalleryItem } from "@/data/gallery";
 
 /**
- * Editorial masonry. Rather than a JS masonry library, every tile is a fixed
- * aspect ratio — 4:5 normally, 4:6 for the `tall` ones — inside a plain CSS
- * grid. The heights therefore differ per column without any measurement pass,
- * which means no layout shift after hydration and no client JS at all.
+ * Editorial masonry, done with CSS multi-column rather than grid.
+ *
+ * Grid was the first attempt and it does not actually produce masonry: every
+ * row is as tall as its tallest tile, so each `tall` item punched a column of
+ * dead cream space under its shorter neighbours and the page read as broken
+ * rather than editorial. Columns flow tiles continuously and close those gaps
+ * with no measurement pass, no layout shift, and no client JS.
+ *
+ * The trade is reading order — columns run top-to-bottom, not left-to-right.
+ * For an unordered set of photographs that costs nothing.
  */
 export default function GalleryGrid({ items = gallery }: { items?: GalleryItem[] }) {
   return (
-    <ul className="grid gap-4 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <ul className="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-6">
       {items.map((item, i) => (
-        <Reveal as="li" key={item.src} delay={(i % 3) * 90}>
+        <Reveal
+          as="li"
+          key={item.src}
+          delay={(i % 3) * 90}
+          // break-inside-avoid stops a column break landing mid-photograph;
+          // the bottom margin is the vertical gutter, which `gap` only
+          // supplies horizontally in a multi-column layout.
+          className="break-inside-avoid mb-4 md:mb-6"
+        >
           <figure className="group relative overflow-hidden bg-sand">
             <div className={`relative ${item.tall ? "aspect-[4/6]" : "aspect-[4/5]"}`}>
               <Image

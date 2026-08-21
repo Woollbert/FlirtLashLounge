@@ -37,15 +37,26 @@ It also knocks the white background out of the wordmark (→ `logo-wordmark.png`
 and relights the black lash flick to cream for dark sections
 (→ `logo-wordmark-light.png`).
 
-**4 slots have generated "PHOTO NEEDED" placeholders** — they are visibly
+**5 slots have generated "PHOTO NEEDED" placeholders** — they are visibly
 placeholders on purpose, so nothing ships looking finished when it isn't:
 
 - `service-waxing.jpg` — no waxing photo existed in the library
+- `service-bridal.jpg` — likewise. A photo of two women at a brick wall was
+  standing in here, which made the card's caption ("a bride having her lashes
+  finished") a false statement about the image.
 - `team-christina.jpg`, `team-gabriela.jpg`, `team-brooke.jpg` — there are group
   shots, but I can't reliably tell who is who, and captioning the wrong artist's
   face is worse than a placeholder
 
-Drop a real photo at the same path to replace one; nothing else changes.
+Drop a real photo at the same path to replace one; nothing else changes —
+**except the alt text.** Each placeholder's `imageAlt` currently says
+"Placeholder — a portrait of Christina is coming soon", because describing a
+photograph that isn't there is a lie to anyone using a screen reader. When you
+add the real photo, describe it in the same field.
+
+`brooklyn-owner.jpg` and `team-brooklyn.jpg` are my best identification of
+Brooklyn from the library — worth a glance to confirm they are both actually
+her before launch.
 
 ---
 
@@ -72,6 +83,16 @@ Drop a real photo at the same path to replace one; nothing else changes.
 6. **Gift card purchase link.** `offers.json → purchaseUrl` needs the Vagaro
    gift certificate URL. Until it's set, the button falls back to "Call to
    purchase" rather than linking nowhere.
+
+### Your call — third-party names on the training page
+
+The graduates photo now leading `/training` is a genuinely great shot, but at
+full resolution the **certificates are legible, including four students' full
+names**. It came from Brooklyn's own media library and was presumably used in
+her marketing already, but "it was public before" is not the same as consent to
+republish. Options, in order of effort: confirm those four are fine with it,
+blur the name lines, or swap in `training-class.jpg`. I did not decide this one
+either way — it is a real person question, not a design question.
 
 ### Should do
 
@@ -132,11 +153,34 @@ gift-cards, training, join-our-team, service-areas, and 24 local-SEO pages
 
 To add a city: add it to `cities.json` and 3 more pages build themselves.
 
-### One thing worth knowing
+### Two traps worth knowing
 
-Tailwind arbitrary values need **underscores** where CSS needs spaces:
+**1. Tailwind arbitrary values need underscores where CSS needs spaces:**
 `-translate-y-[calc(100%_+_var(--nav-h))]`, not `calc(100%+var(--nav-h))`.
 Writing it the natural way emits invalid CSS that silently takes out a chunk of
 the utilities layer — `position: fixed` stopped working site-wide and the
 navbar fell into normal flow. It builds clean either way, so it only shows up
 in the browser.
+
+**2. `backdrop-filter` creates a containing block for `position: fixed`
+children.** The navbar gets `backdrop-blur-md` once it goes solid. While the
+mobile drawer was nested inside `<header>`, it resolved `top`/`bottom` against
+the 76px-tall header instead of the viewport and computed to **height 0** — the
+menu opened to nothing on every route except the top of the homepage, which is
+the one place the blur class isn't applied yet. The drawer is now a sibling of
+`<header>`, and it must stay one.
+
+## Auditing
+
+`npm run build` catches types, not layout. The checks that actually found
+things were run in a headless browser against the production build:
+
+- contrast measured on **computed** colors, compositing translucent layers,
+  not on the token values
+- image weight measured from `currentSrc`, not the `src` fallback (Next puts
+  the *largest* encode in `src`, so reading it makes every image look oversized)
+- horizontal overflow and tap-target sizes at 360 / 390 / 768px
+- the drawer opened on an **interior** route, not the homepage
+
+If you touch the navbar, the color tokens, or `sizes` on an image, re-run those
+four. The last one is the reason the height-0 drawer sat there undetected.

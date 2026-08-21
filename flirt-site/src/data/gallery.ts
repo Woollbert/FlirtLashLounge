@@ -39,17 +39,12 @@ export const gallery: GalleryItem[] = [
   },
   {
     src: "/images/gallery-03.jpg",
-    alt: "A guest relaxing mid-facial with a hydrating mask applied.",
+    alt: "A guest relaxing during a facial treatment.",
     category: "Skin",
   },
   {
     src: "/images/gallery-05.jpg",
     alt: "Healed ombré powder brows with a soft, shaded finish.",
-    category: "Permanent Makeup",
-  },
-  {
-    src: "/images/gallery-09.jpg",
-    alt: "A finished microbladed brow with individual hair strokes.",
     category: "Permanent Makeup",
     tall: true,
   },

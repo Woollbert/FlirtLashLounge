@@ -23,7 +23,7 @@ const config: Config = {
         espresso: "#2C2521", // body text on light (AAA)
         mute: "#6A5E53", // secondary body text (AA on cream)
         taupe: "#B79A7C", // decorative accent — rules, borders, large type
-        clay: "#8A6C50", // accent safe for small text on light (AA)
+        clay: "#795E44", // accent safe for small text on light (AA on cream AND sand)
         rose: "#C9A493", // soft blush, used sparingly
         line: "#E3D8C8", // hairline borders
       },

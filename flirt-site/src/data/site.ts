@@ -16,6 +16,8 @@ export type Site = {
   shortName: string;
   tagline: string;
   description: string;
+  /** Short form for <meta name="description">. Keep under ~160 chars. */
+  metaDescription: string;
   url: string;
   foundedYear: number;
   phone: string;
@@ -103,10 +105,3 @@ export const site = siteJson as unknown as Site;
 
 /** "1906 Oceanside Blvd Ste Q, Oceanside, CA 92054" */
 export const fullAddress = `${site.address.street} ${site.address.suite}, ${site.address.city}, ${site.address.region} ${site.address.postalCode}`;
-
-/** Anything in the content files still carrying a TODO marker is not launch
- *  ready. Surfaced at build time rather than silently shipped — see NOTES.md
- *  for the full checklist. */
-export function isPlaceholder(value: string | null | undefined): boolean {
-  return typeof value === "string" && value.startsWith("TODO_CONFIRM");
-}

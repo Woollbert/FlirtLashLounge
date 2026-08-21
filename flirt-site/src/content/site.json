@@ -5,6 +5,8 @@
   "shortName": "Flirt Lash Lounge",
   "tagline": "Let us pamper you. You deserve it.",
   "description": "Oceanside California's luxury beauty retreat. A collaboration of North County's most talented independent beauty professionals - eyelash extensions, lash lifts, brow lamination, permanent makeup, skincare, waxing, and nails.",
+  "_metaDescriptionNote": "Keep under ~160 characters. Google truncates past that, and the tail is wasted. `description` above is the long form and is used for structured data, where length does not matter.",
+  "metaDescription": "Oceanside's luxury beauty retreat. Eyelash extensions, lash lifts, brow lamination, permanent makeup, facials, waxing, and nails. Book online today.",
   "url": "https://www.flirtluxurylashlounge.com",
   "foundedYear": 2019,
 
@@ -102,7 +104,7 @@
       "eyebrow": "The Work",
       "headlineLine1": "Sets we are",
       "headlineScript": "proud of",
-      "intro": "A closer look at recent lash sets, brow transformations, permanent makeup, and nails - all done in-house."
+      "intro": "A closer look at recent lash sets, brow transformations, permanent makeup, and nails - plus a few frames from the training room."
     },
     "testimonials": {
       "eyebrow": "Kind Words",

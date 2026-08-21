@@ -141,7 +141,7 @@
         { "q": "Can I get a facial with lash extensions on?", "a": "Yes. Let your esthetician know and the eye area is worked around and kept dry." }
       ],
       "imageUrl": "/images/service-facials.jpg",
-      "imageAlt": "A custom facial treatment in progress in a warm, dimly lit spa room."
+      "imageAlt": "A guest relaxing during a custom facial treatment."
     },
     {
       "slug": "waxing",
@@ -168,7 +168,7 @@
         { "q": "I am on a retinoid. Can I still wax?", "a": "Not on the area being treated. Retinoids thin the skin and waxing over them can lift it. Stop for a week beforehand and tell your esthetician." }
       ],
       "imageUrl": "/images/service-waxing.jpg",
-      "imageAlt": "A clean, private waxing treatment room with warm neutral finishes."
+      "imageAlt": "Placeholder — a photograph of the waxing room is coming soon."
     },
     {
       "slug": "nails",
@@ -195,7 +195,7 @@
         { "q": "Can I bring inspiration photos?", "a": "Please do. It is the fastest way to get exactly what you pictured." }
       ],
       "imageUrl": "/images/service-nails.jpg",
-      "imageAlt": "A finished structured gel manicure with hand-painted detail."
+      "imageAlt": "A finished structured gel manicure in a glossy red."
     },
     {
       "slug": "bridal",
@@ -218,7 +218,7 @@
         { "q": "When should the lashes actually be done?", "a": "Three to five days before. Long enough to settle in, close enough that they are still at peak fullness in every photograph." }
       ],
       "imageUrl": "/images/service-bridal.jpg",
-      "imageAlt": "A bride having her lashes finished before the ceremony."
+      "imageAlt": "Placeholder — a bridal photograph is coming soon."
     }
   ],
 

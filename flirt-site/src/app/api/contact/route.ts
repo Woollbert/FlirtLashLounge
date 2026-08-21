@@ -23,7 +23,43 @@ function clean(value: unknown, max = 2000): string {
   return value.trim().slice(0, max);
 }
 
+// Crude per-IP throttle. This endpoint sends mail on demand from an unauthed
+// public form, and the honeypot alone only stops the laziest bots. Module
+// scope means it resets whenever the serverless instance recycles and isn't
+// shared between instances — it is a speed bump, not a guarantee. Anything
+// stronger belongs in a WAF or Vercel's rate limiting, not here.
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const hits = new Map<string, number[]>();
+
+function rateLimited(ip: string): boolean {
+  const now = Date.now();
+  const recent = (hits.get(ip) || []).filter((t) => now - t < RATE_WINDOW_MS);
+  recent.push(now);
+  hits.set(ip, recent);
+
+  // Keep the map from growing without bound on a long-lived instance.
+  if (hits.size > 500) {
+    for (const [k, v] of hits) {
+      if (v.every((t) => now - t >= RATE_WINDOW_MS)) hits.delete(k);
+    }
+  }
+  return recent.length > RATE_LIMIT;
+}
+
 export async function POST(request: Request) {
+  const ip =
+    request.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
+    request.headers.get("x-real-ip") ||
+    "unknown";
+
+  if (rateLimited(ip)) {
+    return NextResponse.json(
+      { error: `Too many requests. Please call us at ${site.phone}.` },
+      { status: 429 },
+    );
+  }
+
   let payload: Record<string, unknown>;
   try {
     payload = await request.json();

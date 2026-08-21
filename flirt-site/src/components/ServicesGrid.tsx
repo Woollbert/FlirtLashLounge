@@ -72,6 +72,7 @@ export default function ServicesGrid({
             eyebrow={copy.eyebrow}
             line1={copy.headlineLine1}
             script={copy.headlineScript}
+            accent="italic"
             intro={copy.intro}
           />
         )}

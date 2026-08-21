@@ -29,6 +29,7 @@ export default function HomePage() {
             eyebrow={g.eyebrow}
             line1={g.headlineLine1}
             script={g.headlineScript}
+            accent="italic"
             intro={g.intro}
           />
           <div className="mt-16">

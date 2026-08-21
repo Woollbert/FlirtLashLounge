@@ -17,20 +17,30 @@ export default function MobileBookBar() {
   if (pathname === "/book") return null;
 
   return (
-    <div
-      className="lg:hidden fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-line bg-cream/95 backdrop-blur-md"
-      // Keeps the buttons clear of the iOS home indicator.
-      style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
-    >
-      <a
-        href={`tel:${site.phoneTel}`}
-        className="btn btn-outline !border-0 !border-r !border-line !py-4 text-ink"
+    <>
+      {/* Spacer, in normal flow after the footer, so the bar never covers the
+          last line of the page. Lives here rather than as padding on <main>
+          so it disappears with the bar on routes that hide it. */}
+      <div
+        className="lg:hidden"
+        style={{ height: "calc(3.5rem + env(safe-area-inset-bottom))" }}
+        aria-hidden="true"
+      />
+      <div
+        className="lg:hidden fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-line bg-cream/95 backdrop-blur-md"
+        // Keeps the buttons clear of the iOS home indicator.
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
-        Call
-      </a>
-      <Link href="/book" className="btn btn-ink !py-4">
-        Book Now
-      </Link>
-    </div>
+        <a
+          href={`tel:${site.phoneTel}`}
+          className="btn btn-outline !border-0 !border-r !border-line !py-4 text-ink"
+        >
+          Call
+        </a>
+        <Link href="/book" className="btn btn-ink !py-4">
+          Book Now
+        </Link>
+      </div>
+    </>
   );
 }

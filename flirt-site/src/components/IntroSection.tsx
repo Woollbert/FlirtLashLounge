@@ -37,7 +37,7 @@ export default function IntroSection() {
           <Reveal delay={80}>
             <h2 className="display-lg mt-5">
               {intro.headlineLine1}{" "}
-              <span className="script-accent">{intro.headlineScript}</span>
+              <span className="italic text-clay">{intro.headlineScript}</span>
             </h2>
           </Reveal>
 

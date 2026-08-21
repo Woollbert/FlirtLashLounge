@@ -25,10 +25,13 @@ export function getService(slug: string): Service | undefined {
   return services.find((s) => s.slug === slug);
 }
 
-/** "From $145" once a price exists, a booking nudge until then. Centralized so
- *  filling in `priceFrom` in the JSON flips every surface at once. */
+/** "From $145" once a price exists. Until then it says what is actually true:
+ *  every artist at Flirt rents their own station and sets their own prices, so
+ *  there is no single house rate. "View pricing" was circular — it sat in the
+ *  price slot and told you to go find the price. Centralized so filling in
+ *  `priceFrom` in the JSON flips every surface at once. */
 export function priceLabel(service: Service): string {
-  return service.priceFrom == null ? "View pricing" : `From $${service.priceFrom}`;
+  return service.priceFrom == null ? "Varies by artist" : `From $${service.priceFrom}`;
 }
 
 export function durationLabel(service: Service): string | null {

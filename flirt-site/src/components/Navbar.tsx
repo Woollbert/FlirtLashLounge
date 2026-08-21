@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/Logo";
 import { site } from "@/data/site";
 
@@ -21,6 +21,8 @@ export default function Navbar() {
   const overlay = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const panelRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!overlay) return;
@@ -45,11 +47,42 @@ export default function Navbar() {
     };
   }, [open]);
 
+  // Escape closes, and Tab cycles within the drawer. Without the trap, tabbing
+  // past the last drawer link walks into the page behind it — which is still
+  // rendered and still scrollable-to, so a keyboard user ends up interacting
+  // with content they cannot see under an opaque overlay.
   useEffect(() => {
     if (!open) return;
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        setOpen(false);
+        triggerRef.current?.focus();
+        return;
+      }
+      if (e.key !== "Tab") return;
+
+      const panel = panelRef.current;
+      if (!panel) return;
+      const focusable = [
+        triggerRef.current,
+        ...panel.querySelectorAll<HTMLElement>("a[href], button"),
+      ].filter((el): el is HTMLElement => Boolean(el));
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+
+      if (e.shiftKey && (active === first || !panel.contains(active) && active !== triggerRef.current)) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
+
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
@@ -57,6 +90,7 @@ export default function Navbar() {
   const solid = !overlay || scrolled;
 
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow] duration-500 ${
         solid
@@ -111,6 +145,7 @@ export default function Navbar() {
 
           <button
             type="button"
+            ref={triggerRef}
             onClick={() => setOpen((v) => !v)}
             className={`lg:hidden -mr-2 p-2 transition-colors duration-500 ${
               solid ? "text-ink" : "text-cream"
@@ -146,17 +181,27 @@ export default function Navbar() {
         </div>
       </nav>
 
+    </header>
+
       {/* Mobile drawer. Rendered always and translated off-screen so the
           open/close both animate; `hidden` would skip the exit transition.
 
+          It is a SIBLING of <header>, not a child, and that is load-bearing.
+          The header carries `backdrop-blur-md` once it goes solid, and
+          backdrop-filter makes an element a containing block for fixed-position
+          descendants. Nested inside, the drawer resolved top/bottom against the
+          76px-tall header instead of the viewport and computed to height 0 —
+          so the menu opened to nothing on every route except the top of the
+          homepage, which is the one place the blur class is not applied.
+
           The closed offset is -100% MINUS the navbar height, not -100%. The
           panel starts at top:var(--nav-h), so translating by exactly its own
-          height leaves its bottom edge resting at y=nav-h — a strip of the
-          drawer visible under the bar, painting over the logo (it is a later
-          sibling inside the same header, so it wins the stacking order). */}
+          height leaves its bottom edge resting at y=nav-h — a visible strip
+          under the bar. */}
       <div
         id="mobile-menu"
-        className={`lg:hidden fixed inset-x-0 bottom-0 bg-cream transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        ref={panelRef}
+        className={`lg:hidden fixed inset-x-0 bottom-0 z-40 bg-cream transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           open
             ? "translate-y-0"
             : "-translate-y-[calc(100%_+_var(--nav-h))] pointer-events-none"
@@ -164,7 +209,12 @@ export default function Navbar() {
         style={{ top: "var(--nav-h)" }}
         aria-hidden={!open}
       >
-        <div className="container-wide h-full flex flex-col justify-between py-10 overflow-y-auto">
+        {/* The fixed call/book bar sits over the bottom of this panel, so the
+            padding has to clear it or the address underneath is cut in half. */}
+        <div
+          className="container-wide h-full flex flex-col justify-between pt-10 overflow-y-auto"
+          style={{ paddingBottom: "calc(5.5rem + env(safe-area-inset-bottom))" }}
+        >
           <ul className="space-y-1">
             {NAV.map((item, i) => (
               <li key={item.href}>
@@ -214,6 +264,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }

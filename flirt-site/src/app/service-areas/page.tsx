@@ -47,7 +47,7 @@ export default function ServiceAreasPage() {
                       <li key={service.slug}>
                         <Link
                           href={`/${service.slug}-${city.slug}`}
-                          className="link-underline text-[0.88rem] text-espresso hover:text-ink"
+                          className="link-underline inline-block py-1 text-[0.88rem] text-espresso hover:text-ink"
                         >
                           {service.name} in {city.name}
                         </Link>

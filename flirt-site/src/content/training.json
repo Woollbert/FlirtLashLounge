@@ -1,6 +1,5 @@
 {
   "_readme": "Aviara Beauty Academy — Brooklyn's lash education arm. The Combo Lash Course curriculum, kit contents, and $899 price are verbatim from the archived Wix store. The other three courses were listed on the old store but their product pages did not render server-side, so their prices could not be recovered: price=null shows 'Ask about pricing'. Fill them in and they display.",
-
   "brand": "Aviara Beauty Academy",
   "eyebrow": "Aviara Beauty Academy",
   "headlineLine1": "Learn to lash from",
@@ -8,13 +7,18 @@
   "intro": "Southern California's premier eyelash extension training program, taught by Brooklyn Boris — 15-year lash artist and founder of Flirt Lash Lounge & Day Spa. Her knowledge, experience, and five-star student reviews guarantee a one-of-a-kind learning experience.",
   "pitch": "Get ready to learn from the best, be your own boss, earn up to $100 an hour, and enjoy making others feel beautiful.",
   "logo": "/images/aviara-academy-logo.png",
-  "heroImage": "/images/training-class.jpg",
-  "heroImageAlt": "Students practicing lash application at an Aviara Beauty Academy training day.",
+  "heroImage": "/images/training-graduates.jpg",
+  "heroImageAlt": "Aviara Beauty Academy graduates holding their certificates of completion.",
   "galleryImages": [
-    { "src": "/images/training-graduates.jpg", "alt": "Aviara Beauty Academy graduates holding their certificates of completion." },
-    { "src": "/images/training-practice.jpg", "alt": "Brooklyn guiding a student through isolation technique on a practice head." }
+    {
+      "src": "/images/training-class.jpg",
+      "alt": "Students practicing lash application at an Aviara Beauty Academy training day."
+    },
+    {
+      "src": "/images/training-practice.jpg",
+      "alt": "Brooklyn guiding a student through isolation technique on a practice head."
+    }
   ],
-
   "courses": [
     {
       "slug": "beginner-classic",
@@ -49,7 +53,6 @@
       "featured": false
     }
   ],
-
   "curriculum": {
     "title": "What the Combo Lash Course covers",
     "items": [
@@ -71,7 +74,6 @@
       "Certificate of Completion"
     ]
   },
-
   "kit": {
     "title": "Included in the Training Kit",
     "note": "Also sold separately for $435.",
@@ -97,9 +99,7 @@
       "1 pack Lash Brushes"
     ]
   },
-
   "instructorNote": "This course is taught by Lash Expert & Flirt's Founder, Brooklyn Boris. Brooklyn has accumulated over a decade of hands-on experience creating lash magic in Southern California as well as Melbourne, Australia. She enjoys supporting and encouraging others to chase their dreams.",
-
   "ctaLabel": "Sign up now",
   "ctaNote": "Class sizes are kept small so everyone gets hands-on time. Call the lounge to check the next available date."
 }

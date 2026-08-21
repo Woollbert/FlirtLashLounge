@@ -109,7 +109,7 @@ export default function Footer() {
                 </div>
               ))}
             </dl>
-            <p className="mt-4 text-[0.78rem] leading-relaxed text-cream/45 max-w-[16rem]">
+            <p className="mt-4 text-[0.78rem] leading-relaxed text-cream/55 max-w-[16rem]">
               {site.hoursNote}
             </p>
           </div>
@@ -169,7 +169,7 @@ export default function Footer() {
               <li key={c.slug}>
                 <Link
                   href={`/eyelash-extensions-${c.slug}`}
-                  className="link-underline text-[0.82rem] text-cream/55 hover:text-cream transition-colors"
+                  className="link-underline inline-block py-1 text-[0.82rem] text-cream/55 hover:text-cream transition-colors"
                 >
                   {c.name}
                 </Link>
@@ -178,7 +178,7 @@ export default function Footer() {
           </ul>
         </nav>
 
-        <div className="mt-14 pt-8 border-t border-cream/10 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center text-[0.78rem] text-cream/45">
+        <div className="mt-14 pt-8 border-t border-cream/10 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center text-[0.78rem] text-cream/55">
           <p>Thank you for choosing us.</p>
           <p>
             &copy; {YEAR} {site.name}

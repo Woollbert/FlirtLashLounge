@@ -41,7 +41,6 @@ const MAP = {
   "service-permanent-makeup.jpg": ["8_e962b6_0c3b0280d1624fd3a45c0aaaf4ebf05f~mv2.jpg", 1400],
   "service-facials.jpg": ["e962b6_ef760cb464254ac1b507929fc924ca4f_mv2.jpg", 1400],
   "service-nails.jpg": ["e962b6_75fc411e797f42fb9cb89094cae549bf_mv2.jpg", 1400],
-  "service-bridal.jpg": ["e962b6_b1f4202f597e46d6bf925ae410816485_mv2.jpg", 1400],
 
   // Team
   "team-brooklyn.jpg": ["e962b6_0a652f94f8e34e1a871413785a4f86f5_mv2.jpg", 1000],
@@ -50,7 +49,6 @@ const MAP = {
   "training-class.jpg": ["e962b6_6835740dc0db4c6fbaea40170ef17504_mv2.jpg", 1800],
   "training-graduates.jpg": ["e962b6_e47bfb17a206485aa9f86dad3a94038d_mv2.jpg", 1600],
   "training-practice.jpg": ["e962b6_a15d6d6e152d40ca862d0fa2b41b56eb_mv2.jpg", 1400],
-  "aviara-academy-logo.png": ["e962b6_e9fa858a1bf94574beb150bc8cb0b5a1_mv2.png", 600],
 
   // Retail / gift
   "gift-card.jpg": ["e962b6_564b536ef2eb4e26941d5bd13352b7e5_mv2.jpg", 1400],
@@ -78,7 +76,6 @@ const MAP = {
   "gallery-06.jpg": ["9_e962b6_75fc411e797f42fb9cb89094cae549bf~mv2.jpg", 1400],
   "gallery-07.jpg": ["e962b6_d5dafbb1a79a4f16a500e44616460948f002.jpg", 1400],
   "gallery-08.jpg": ["e962b6_86c2ca6abdba472b9f3b8f3305548f8d_mv2.jpg", 1400],
-  "gallery-09.jpg": ["e962b6_538a8553e7f14a1fb9fd036354a9147f_mv2.jpg", 1400],
   "gallery-10.jpg": ["e962b6_0d1730a45ee644bbbc4e676fbd033611_mv2.jpg", 1800],
   "gallery-11.jpg": ["e962b6_d306ac47cf5444efb29ff1e1b8327388_mv2.jpg", 1400],
   "gallery-12.jpg": ["e962b6_f552a9ac262f4299a463a602cc0280e8_mv2.jpg", 1400],
@@ -99,6 +96,13 @@ const LOGOS = {
     { relightDark: true },
   ],
   "logo-card-dark.jpg": ["e962b6_2772f15833d84cc691cabe58ceb00aea_mv2.jpeg", 1200],
+  // Aviara Beauty Academy. Ships as a pale beige disc on a white square, and
+  // that square reads as a lighter box against the ivory band it sits on.
+  "aviara-academy-logo.png": [
+    "e962b6_e9fa858a1bf94574beb150bc8cb0b5a1_mv2.png",
+    700,
+    { cut: 251, ramp: 8 },
+  ],
 };
 
 async function knockOutWhite(src, dest, width, opts = {}) {
@@ -117,9 +121,17 @@ async function knockOutWhite(src, dest, width, opts = {}) {
     // Fully transparent above the threshold, then a soft ramp through the
     // antialiased edge pixels so the script's thin strokes keep clean edges
     // instead of picking up a white fringe.
+    // `cut` is where the background is considered fully gone and `ramp` is how
+    // far below that the antialiased edge is feathered. The default pair suits
+    // artwork whose own ink is dark. The academy mark is a pale beige disc
+    // sitting only ~30 levels below white, so it needs a much tighter window —
+    // the default would have made the disc itself half transparent.
+    const cut = opts.cut ?? 246;
+    const ramp = opts.ramp ?? 31;
     const lum = (r + g + b) / 3;
-    if (lum > 246) data[o + 3] = 0;
-    else if (lum > 215) data[o + 3] = Math.round(255 * (1 - (lum - 215) / 31));
+    if (lum > cut) data[o + 3] = 0;
+    else if (lum > cut - ramp)
+      data[o + 3] = Math.round(255 * (1 - (lum - (cut - ramp)) / ramp));
 
     // Repaint only the genuinely dark, desaturated ink — the lash flick.
     // The gold script is both lighter and strongly warm, so the saturation
@@ -143,6 +155,9 @@ async function knockOutWhite(src, dest, width, opts = {}) {
 /** Slots with no usable recovered photo. Generated as obvious placeholders. */
 const PLACEHOLDERS = {
   "service-waxing.jpg": ["Waxing", 1400, 1050],
+  // The library has no bridal photograph. The two-women shot that was here
+  // depicts nothing bridal, so it made the card's alt text a false statement.
+  "service-bridal.jpg": ["Bridal", 1400, 1050],
   "team-christina.jpg": ["Christina", 1000, 1250],
   "team-gabriela.jpg": ["Gabriela", 1000, 1250],
   "team-brooke.jpg": ["Brooke", 1000, 1250],

@@ -33,7 +33,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!sc) return {};
 
   const title = `${sc.service.name} in ${sc.city.name}, CA`;
-  const description = `${sc.service.name} for ${sc.city.name} guests at Flirt Lash Lounge & Day Spa — ${sc.city.driveTime} away in Oceanside. ${sc.service.short}`;
+  // Kept under ~160 chars. Appending service.short pushed these past 190 and
+  // Google was cutting them mid-sentence.
+  const description = `${sc.service.name} for ${sc.city.name} guests — ${sc.city.driveTime} from ${site.address.city} at ${site.name}. Book online or call ${site.phone}.`;
 
   return {
     title,
@@ -222,7 +224,7 @@ export default async function ServiceCityPage({ params }: Params) {
                     <li key={c.slug}>
                       <Link
                         href={`/${service.slug}-${c.slug}`}
-                        className="link-underline text-[0.85rem] text-mute hover:text-ink transition-colors"
+                        className="link-underline inline-block py-1.5 text-[0.85rem] text-mute hover:text-ink transition-colors"
                       >
                         {c.name}
                       </Link>

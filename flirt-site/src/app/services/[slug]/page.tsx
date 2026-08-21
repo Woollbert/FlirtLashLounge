@@ -184,7 +184,7 @@ export default async function ServicePage({ params }: Params) {
                       <li key={c.slug}>
                         <Link
                           href={`/${service.slug}-${c.slug}`}
-                          className="link-underline text-[0.85rem] text-mute hover:text-ink transition-colors"
+                          className="link-underline inline-block py-1.5 text-[0.85rem] text-mute hover:text-ink transition-colors"
                         >
                           {c.name}
                         </Link>

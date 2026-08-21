@@ -4,9 +4,16 @@ type Props = {
   eyebrow?: string;
   /** The roman-serif part of the headline. */
   line1: string;
-  /** The calligraphic word that lands under it. Optional — not every heading
-   *  should carry one; used everywhere, the move stops meaning anything. */
+  /** The accent phrase that lands under line1. */
   script?: string;
+  /**
+   * How that phrase is set. The calligraphic script is the loudest gesture in
+   * the system, so it is rationed: the hero, the founder's name, and the
+   * closing tagline. Everything in between uses `italic` — the display serif's
+   * own italic, which still marks the phrase as the emphasis without the page
+   * reading as a run of identical flourishes.
+   */
+  accent?: "script" | "italic";
   intro?: string;
   align?: "left" | "center";
   /** Inverts colors for use on the near-black sections. */
@@ -19,6 +26,7 @@ export default function SectionHeading({
   eyebrow,
   line1,
   script,
+  accent = "script",
   intro,
   align = "center",
   tone = "dark",
@@ -49,8 +57,14 @@ export default function SectionHeading({
             <>
               {" "}
               <span
-                className="script-accent"
-                style={light ? { color: "var(--color-taupe)" } : undefined}
+                className={accent === "script" ? "script-accent" : "italic"}
+                style={
+                  accent === "script"
+                    ? light
+                      ? { color: "var(--color-taupe)" }
+                      : undefined
+                    : { color: light ? "var(--color-taupe)" : "var(--color-clay)" }
+                }
               >
                 {script}
               </span>
