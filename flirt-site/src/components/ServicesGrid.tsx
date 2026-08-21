@@ -24,6 +24,7 @@ export function ServiceCard({
             alt={service.imageAlt}
             fill
             sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 92vw"
+            quality={88}
             className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
           />
         </div>

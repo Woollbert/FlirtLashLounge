@@ -107,6 +107,7 @@ export default async function ServiceCityPage({ params }: Params) {
                 fill
                 priority
                 sizes="(min-width: 1024px) 45vw, 92vw"
+                quality={88}
                 className="object-cover"
               />
             </div>

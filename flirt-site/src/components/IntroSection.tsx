@@ -24,6 +24,7 @@ export default function IntroSection() {
               alt={intro.imageAlt}
               fill
               sizes="(min-width: 1024px) 46vw, 92vw"
+              quality={88}
               className="object-cover"
             />
           </div>

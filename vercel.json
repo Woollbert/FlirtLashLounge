@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "buildCommand": "cd flirt-site && npm run build",
+  "installCommand": "cd flirt-site && npm install",
+  "outputDirectory": "flirt-site/.next"
+}

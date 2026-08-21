@@ -71,6 +71,7 @@ export default function AboutOwner({ showCta = true }: { showCta?: boolean }) {
               alt={about.imageAlt}
               fill
               sizes="(min-width: 1024px) 44vw, 92vw"
+              quality={88}
               className="object-cover object-top"
             />
           </div>

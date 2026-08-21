@@ -43,6 +43,10 @@
     color: var(--color-ink);
     font-weight: 400;
     letter-spacing: -0.005em;
+    /* Headlines here mix roman and italic across a line break; left to the
+       browser's greedy line-breaking, the accent phrase splits at unhelpful
+       points ("stay for / the experience"). Balance evens the ragged edge. */
+    text-wrap: balance;
   }
   ::selection {
     background-color: var(--color-taupe);

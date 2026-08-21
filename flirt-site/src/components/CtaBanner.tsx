@@ -20,7 +20,11 @@ export default function CtaBanner() {
           alt={cta.imageAlt}
           fill
           sizes="100vw"
-          className="object-cover object-center"
+          quality={92}
+          // The source is a 2400x3000 portrait and the band is a ~2.65:1 slice
+          // of it. Dead-centre landed on the tray's "PICK" row labels; 35%
+          // frames the branded gold label instead.
+          className="object-cover object-[50%_35%]"
         />
         <div className="absolute inset-0 bg-ink/25" aria-hidden="true" />
       </div>

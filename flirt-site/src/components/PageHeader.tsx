@@ -55,6 +55,7 @@ export default function PageHeader({
             fill
             priority
             sizes="100vw"
+            quality={92}
             className="object-cover"
           />
         </div>

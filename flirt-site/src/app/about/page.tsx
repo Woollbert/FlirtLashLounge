@@ -55,6 +55,7 @@ export default function AboutPage() {
                       alt={member.imageAlt}
                       fill
                       sizes="(min-width: 1024px) 23vw, (min-width: 640px) 46vw, 92vw"
+                      quality={88}
                       className="object-cover object-top transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]"
                     />
                   </div>

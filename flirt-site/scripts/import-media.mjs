@@ -26,10 +26,10 @@ const OUT = path.join(process.cwd(), "public/images");
 /** dest name -> [source file, width, {fit position}] */
 const MAP = {
   // Hero + section imagery
-  "hero-lounge.jpg": ["e962b6_0d1730a45ee644bbbc4e676fbd033611_mv2.jpg", 2400],
+  "hero-lounge.jpg": ["e962b6_0d1730a45ee644bbbc4e676fbd033611_mv2.jpg", 3200],
   "intro-interior.jpg": ["e962b6_e74c38eafb82481e9b6dd914755abfef_mv2.jpg", 1600],
   "brooklyn-owner.jpg": ["e962b6_f9d40324f1d643abb1bd9b60457936d5_mv2.jpg", 1400],
-  "cta-lashes.jpg": ["e962b6_b1d5a36215104863a1c7ce38168c5ca8_mv2.jpg", 1800],
+  "cta-lashes.jpg": ["e962b6_871310fb40384e5aabc4180d9156465f_mv2.jpg", 2400],
 
   // Service menu
   "service-eyelash-extensions.jpg": [
@@ -76,7 +76,7 @@ const MAP = {
   "gallery-06.jpg": ["9_e962b6_75fc411e797f42fb9cb89094cae549bf~mv2.jpg", 1400],
   "gallery-07.jpg": ["e962b6_d5dafbb1a79a4f16a500e44616460948f002.jpg", 1400],
   "gallery-08.jpg": ["e962b6_86c2ca6abdba472b9f3b8f3305548f8d_mv2.jpg", 1400],
-  "gallery-10.jpg": ["e962b6_0d1730a45ee644bbbc4e676fbd033611_mv2.jpg", 1800],
+  "gallery-10.jpg": ["e962b6_0d1730a45ee644bbbc4e676fbd033611_mv2.jpg", 2000],
   "gallery-11.jpg": ["e962b6_d306ac47cf5444efb29ff1e1b8327388_mv2.jpg", 1400],
   "gallery-12.jpg": ["e962b6_f552a9ac262f4299a463a602cc0280e8_mv2.jpg", 1400],
 };
@@ -190,8 +190,41 @@ async function placeholder(dest, label, w, h) {
   await sharp(Buffer.from(svg)).jpeg({ quality: 88 }).toFile(dest);
 }
 
+/** Widest CSS px each slot is ever displayed at, x2 for retina. If the source
+ *  cannot cover this, the browser upscales and the photo looks soft — which is
+ *  exactly how a 624px thumbnail ended up stretched across a full-bleed band.
+ *  Add a slot here whenever it starts being used somewhere larger. */
+const NEEDED = {
+  "hero-lounge.jpg": 2880,
+  "cta-lashes.jpg": 2880,
+  "intro-interior.jpg": 1140,
+  "brooklyn-owner.jpg": 1140,
+  "team-group.jpg": 1200,
+  "team-group-2.jpg": 1200,
+  "training-class.jpg": 1600,
+  "training-graduates.jpg": 1600,
+  "service-eyelash-extensions.jpg": 1120,
+  "service-lash-lift.jpg": 1120,
+  "service-brow-lamination.jpg": 1120,
+  "service-permanent-makeup.jpg": 1120,
+  "service-facials.jpg": 1120,
+  "service-nails.jpg": 1120,
+  "gallery-01.jpg": 800,
+  "gallery-02.jpg": 800,
+  "gallery-03.jpg": 800,
+  "gallery-04.jpg": 800,
+  "gallery-05.jpg": 800,
+  "gallery-06.jpg": 800,
+  "gallery-07.jpg": 800,
+  "gallery-08.jpg": 800,
+  "gallery-10.jpg": 800,
+  "gallery-11.jpg": 800,
+  "gallery-12.jpg": 800,
+};
+
 let copied = 0;
 let missing = [];
+let tooSmall = [];
 
 fs.mkdirSync(OUT, { recursive: true });
 
@@ -202,16 +235,33 @@ for (const [dest, [srcName, width]] of Object.entries(MAP)) {
     missing.push(`${dest}  (source not found: ${srcName})`);
     continue;
   }
-  const pipeline = sharp(src).resize({
-    width,
-    withoutEnlargement: true,
-  });
+  const srcMeta = await sharp(src).metadata();
+  const need = NEEDED[dest];
+  if (need && srcMeta.width < need) {
+    tooSmall.push(
+      `${dest.padEnd(34)} source ${srcMeta.width}px, needs ~${need}px  (${Math.round((srcMeta.width / need) * 100)}%)`,
+    );
+  }
+
+  // A source that cannot cover its slot is going to be upscaled by something.
+  // Doing it here with lanczos3 plus a light unsharp mask beats leaving it to
+  // the browser's bilinear stretch — it invents no detail, but the edges stay
+  // crisp instead of going to mush. Logged either way so the reshoot list
+  // stays honest.
+  const upscale = need && srcMeta.width < need;
+  const pipeline = upscale
+    ? sharp(src)
+        .resize({ width: need, kernel: sharp.kernel.lanczos3 })
+        .sharpen({ sigma: 0.7, m1: 0.4, m2: 0.9 })
+    : sharp(src).resize({ width, withoutEnlargement: true });
   if (dest.endsWith(".png")) {
     await pipeline.png({ compressionLevel: 9 }).toFile(outPath);
   } else {
-    // mozjpeg at 82 is the knee of the curve for skin — visually lossless at
-    // display size, roughly half the bytes of the Wix originals.
-    await pipeline.jpeg({ quality: 82, mozjpeg: true }).toFile(outPath);
+    // These files are the ORIGIN that next/image re-encodes from, not what
+    // ships. Compressing here as well put every photo through two lossy
+    // passes; q95 keeps this copy effectively transparent and lets the
+    // delivery pass be the only one that costs anything.
+    await pipeline.jpeg({ quality: 95, mozjpeg: true }).toFile(outPath);
   }
   copied++;
 }
@@ -241,6 +291,12 @@ for (const [dest, [label, w, h]] of Object.entries(PLACEHOLDERS)) {
 console.log(`\n  imported ${copied} photos -> public/images`);
 console.log(`  generated ${Object.keys(PLACEHOLDERS).length} placeholders (need real photos):`);
 for (const p of Object.keys(PLACEHOLDERS)) console.log(`    - ${p}`);
+if (tooSmall.length) {
+  console.log(`
+  LOW RESOLUTION (${tooSmall.length}) — these will look soft; the recovered`);
+  console.log(`  library simply has no larger copy. Reshoot to fix:`);
+  for (const t of tooSmall) console.log(`    - ${t}`);
+}
 if (missing.length) {
   console.log(`\n  MISSING SOURCES (${missing.length}):`);
   for (const m of missing) console.log(`    - ${m}`);

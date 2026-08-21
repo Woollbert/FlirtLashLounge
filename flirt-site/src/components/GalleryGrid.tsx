@@ -34,6 +34,7 @@ export default function GalleryGrid({ items = gallery }: { items?: GalleryItem[]
                 alt={item.alt}
                 fill
                 sizes="(min-width: 1024px) 31vw, (min-width: 640px) 46vw, 92vw"
+                quality={88}
                 className="object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]"
               />
             </div>
