@@ -7,6 +7,9 @@ export type City = {
   driveTime: string;
   direction: string;
   landmarks: string[];
+  /** Genuinely city-specific copy. Exists to keep the generated pages from
+   *  collapsing into near-duplicates of each other. */
+  localNote: string;
   blurb: string;
 };
 

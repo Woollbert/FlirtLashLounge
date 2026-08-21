@@ -18,8 +18,21 @@ function Stars() {
   );
 }
 
-export default function Testimonials() {
+export default function Testimonials({
+  /** Show fewer than all — the local pages take one, so 24 URLs do not each
+   *  repeat the same several hundred words of review copy. */
+  limit,
+  offset = 0,
+}: {
+  limit?: number;
+  offset?: number;
+} = {}) {
   const copy = site.sections.testimonials;
+  const shown = limit
+    ? Array.from({ length: Math.min(limit, testimonials.length) }, (_, i) =>
+        testimonials[(offset + i) % testimonials.length],
+      )
+    : testimonials;
 
   return (
     <section className="section bg-sand/50">
@@ -32,8 +45,12 @@ export default function Testimonials() {
           intro={copy.intro}
         />
 
-        <ul className="mt-16 grid gap-6 lg:grid-cols-3 items-start">
-          {testimonials.map((t, i) => (
+        <ul
+          className={`mt-16 grid gap-6 items-start ${
+            shown.length === 1 ? "max-w-2xl mx-auto" : "lg:grid-cols-3"
+          }`}
+        >
+          {shown.map((t, i) => (
             <Reveal as="li" key={t.author} delay={i * 110}>
               <figure className="h-full bg-ivory border border-line p-8 md:p-9 flex flex-col">
                 <Stars />

@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHeader from "@/components/PageHeader";
-import FaqAccordion from "@/components/FaqAccordion";
 import Testimonials from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 import Reveal from "@/components/Reveal";
@@ -59,6 +58,9 @@ export default async function ServiceCityPage({ params }: Params) {
   // Other cities for this same service — internal links that keep the local
   // cluster connected without pointing at a different service.
   const siblings = cities.filter((c) => c.slug !== city.slug);
+  // Rotates which review is shown, so the same quote is not repeated verbatim
+  // across every local page.
+  const cityIndex = cities.findIndex((c) => c.slug === city.slug);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -164,6 +166,9 @@ export default async function ServiceCityPage({ params }: Params) {
                   is free and directly outside the suite, so there is no hunting for a
                   spot before an appointment.
                 </p>
+                <p className="mt-5 text-[0.98rem] leading-[1.85] text-mute">
+                  {city.localNote}
+                </p>
               </section>
             </Reveal>
 
@@ -186,17 +191,6 @@ export default async function ServiceCityPage({ params }: Params) {
                       </li>
                     ))}
                   </ul>
-                </section>
-              </Reveal>
-            )}
-
-            {service.faqs.length > 0 && (
-              <Reveal delay={170}>
-                <section className="mt-12">
-                  <h2 className="display-md !text-[1.6rem] mb-6">
-                    Common questions
-                  </h2>
-                  <FaqAccordion items={service.faqs} />
                 </section>
               </Reveal>
             )}
@@ -238,7 +232,7 @@ export default async function ServiceCityPage({ params }: Params) {
         </div>
       </section>
 
-      <Testimonials />
+      <Testimonials limit={1} offset={cityIndex} />
       <CtaBanner />
     </>
   );

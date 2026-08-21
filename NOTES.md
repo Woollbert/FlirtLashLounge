@@ -182,5 +182,26 @@ things were run in a headless browser against the production build:
 - horizontal overflow and tap-target sizes at 360 / 390 / 768px
 - the drawer opened on an **interior** route, not the homepage
 
+A third pass covers redirects, 404s under the root catch-all, structured-data
+shape, keyboard order and focus rings, the booking form's failure path,
+`prefers-reduced-motion`, and **duplication between the local pages** — that
+last one caught same-service city pages sitting at 83% identical, which is the
+doorway-page pattern Google penalises. It is 47% now; keep an eye on it if you
+add cities, and write a real `localNote` for each one rather than padding.
+
 If you touch the navbar, the color tokens, or `sizes` on an image, re-run those
-four. The last one is the reason the height-0 drawer sat there undetected.
+suites. The drawer bug is the reason the drawer test opens on an interior
+route rather than the homepage.
+
+## Photography ceiling
+
+`node scripts/import-media.mjs` prints a reshoot list. The service close-ups
+recovered from the old site are its *thumbnails* — 349px to 750px — because
+that is the size the Wix homepage rendered them at. They are upscaled on import
+with lanczos3 and a light unsharp mask, which is better than letting the
+browser stretch them, but no process invents detail that was never captured.
+
+Genuinely worth reshooting, worst first: permanent makeup (349px), brow
+lamination (414px), eyelash extensions (624px), lash lift (711px), facials
+(750px). Shoot at full resolution, drop the files at the same paths, re-run the
+importer, and the warnings disappear.

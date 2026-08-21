@@ -1,72 +1,114 @@
 {
-  "_readme": "Local SEO matrix. Each city here is crossed with each slug in serviceSlugs to generate a static page at /{service-slug}-{city-slug} (e.g. /eyelash-extensions-carlsbad). Drive times are approximate and written as approximations on the page. Keep this list tight: pages that describe a genuine service area rank; pages bolted onto towns nobody drives in from do not.",
-
-  "serviceSlugs": ["eyelash-extensions", "lash-lift", "brow-lamination"],
-
+  "_readme": "Local SEO matrix. Each city is crossed with each slug in serviceSlugs to generate a static page at /{service-slug}-{city-slug}. Keep this list tight: pages that describe a genuine service area rank; pages bolted onto towns nobody drives in from do not. `localNote` exists because the generated pages were measuring 83% identical to each other, which is what Google calls a doorway page. It must say something TRUE and SPECIFIC about guests from that city - if you cannot write one, delete the city instead of padding it.",
+  "serviceSlugs": [
+    "eyelash-extensions",
+    "lash-lift",
+    "brow-lamination"
+  ],
   "cities": [
     {
       "slug": "carlsbad",
       "name": "Carlsbad",
       "driveTime": "about 12 minutes",
       "direction": "south on the 5",
-      "landmarks": ["Carlsbad Village", "The Forum", "Legoland"],
-      "blurb": "Carlsbad guests make up a large share of the book, and for good reason - the lounge is a straight run up the 5 from the Village, with parking directly outside the suite instead of a circle around the block."
+      "landmarks": [
+        "Carlsbad Village",
+        "The Forum",
+        "Legoland"
+      ],
+      "blurb": "Carlsbad guests make up a large share of the book, and for good reason - the lounge is a straight run up the 5 from the Village, with parking directly outside the suite instead of a circle around the block.",
+      "localNote": "Most Carlsbad guests are on a standing fill cycle rather than one-off appointments, so we hold recurring slots rather than making people re-book every three weeks. If you are coming from the Village or Bressi Ranch, the lounge is closer than most of the studios actually inside Carlsbad, and the parking is free."
     },
     {
       "slug": "vista",
       "name": "Vista",
       "driveTime": "about 15 minutes",
       "direction": "west on the 78",
-      "landmarks": ["Vista Village", "Moonlight Amphitheatre", "the Vista Business Park"],
-      "blurb": "From Vista it is a straight shot down the 78 and onto Oceanside Blvd. Close enough that a three-week fill cycle never feels like a commitment."
+      "landmarks": [
+        "Vista Village",
+        "Moonlight Amphitheatre",
+        "the Vista Business Park"
+      ],
+      "blurb": "From Vista it is a straight shot down the 78 and onto Oceanside Blvd. Close enough that a three-week fill cycle never feels like a commitment.",
+      "localNote": "Vista guests book the earliest and latest slots more than anyone else - 8am before work off the 78, or an evening appointment on the way home. Because the drive is short, a lash lift or a fill fits inside a lunch break without anyone noticing you left."
     },
     {
       "slug": "san-marcos",
       "name": "San Marcos",
       "driveTime": "about 22 minutes",
       "direction": "west on the 78",
-      "landmarks": ["CSUSM", "Restaurant Row", "San Marcos Creek District"],
-      "blurb": "San Marcos guests, students and professionals alike, come to us for sets that hold up to a full week without touching a mascara wand."
+      "landmarks": [
+        "CSUSM",
+        "Restaurant Row",
+        "San Marcos Creek District"
+      ],
+      "blurb": "San Marcos guests, students and professionals alike, come to us for sets that hold up to a full week without touching a mascara wand.",
+      "localNote": "Between CSUSM and the Restaurant Row offices, San Marcos guests tend to want the lowest-maintenance version of whatever they book: lifts over extensions during finals, hybrid sets rather than mega volume, brows laminated so they hold for a month without daily work."
     },
     {
       "slug": "encinitas",
       "name": "Encinitas",
       "driveTime": "about 20 minutes",
       "direction": "north on the 101 or the 5",
-      "landmarks": ["Moonlight Beach", "downtown 101", "Leucadia"],
-      "blurb": "Encinitas is a beach town, and beach towns are hard on lashes - salt water, sun, and sand all shorten retention. It is exactly the case a properly mapped, properly isolated set is built for."
+      "landmarks": [
+        "Moonlight Beach",
+        "downtown 101",
+        "Leucadia"
+      ],
+      "blurb": "Encinitas is a beach town, and beach towns are hard on lashes - salt water, sun, and sand all shorten retention. It is exactly the case a properly mapped, properly isolated set is built for.",
+      "localNote": "Salt water, sun, and sand are all hard on a lash set, and Encinitas guests live in all three. That changes what we recommend - shorter curls that survive a wetsuit, adhesives chosen for humidity, and a fill cadence that accounts for the ocean rather than pretending it is not there."
     },
     {
       "slug": "camp-pendleton",
       "name": "Camp Pendleton",
       "driveTime": "about 12 minutes",
       "direction": "south from the main gate",
-      "landmarks": ["MCB Camp Pendleton", "the Del Mar gate", "Oceanside Harbor"],
-      "blurb": "We see a lot of military families, and we build around military schedules - low-maintenance lifts before a deployment, full sets before homecoming, and appointments that start on time."
+      "landmarks": [
+        "MCB Camp Pendleton",
+        "the Del Mar gate",
+        "Oceanside Harbor"
+      ],
+      "blurb": "We see a lot of military families, and we build around military schedules - low-maintenance lifts before a deployment, full sets before homecoming, and appointments that start on time.",
+      "localNote": "We work around military timelines rather than asking them to work around us: low-maintenance lifts before a deployment, a full set timed for homecoming, and appointments that genuinely start when they are booked. Bring your ID and allow a few extra minutes at the gate on the way out."
     },
     {
       "slug": "fallbrook",
       "name": "Fallbrook",
       "driveTime": "about 25 minutes",
       "direction": "south on Mission Rd",
-      "landmarks": ["Main Avenue", "the avocado groves", "Bonsall"],
-      "blurb": "Fallbrook is worth the drive precisely because the good options up the hill are thin. Guests batch their visit - lashes, brows, and a facial in one trip down."
+      "landmarks": [
+        "Main Avenue",
+        "the avocado groves",
+        "Bonsall"
+      ],
+      "blurb": "Fallbrook is worth the drive precisely because the good options up the hill are thin. Guests batch their visit - lashes, brows, and a facial in one trip down.",
+      "localNote": "There is not much up the hill, so Fallbrook guests batch: lashes, brows, and a facial in a single trip rather than three separate drives. Tell us when you book and we will stack the appointments back to back with one artist where we can, so the whole visit is one block rather than a day of waiting."
     },
     {
       "slug": "escondido",
       "name": "Escondido",
       "driveTime": "about 30 minutes",
       "direction": "west on the 78",
-      "landmarks": ["Grand Avenue", "Westfield North County", "the San Diego Zoo Safari Park"],
-      "blurb": "Escondido guests tend to book longer appointments, less often - mega volume sets and permanent makeup, where the result carries for months rather than weeks."
+      "landmarks": [
+        "Grand Avenue",
+        "Westfield North County",
+        "the San Diego Zoo Safari Park"
+      ],
+      "blurb": "Escondido guests tend to book longer appointments, less often - mega volume sets and permanent makeup, where the result carries for months rather than weeks.",
+      "localNote": "It is the longest drive on this list, and Escondido guests book accordingly - mega volume sets, permanent makeup, lamination - the services where the result carries for months instead of weeks. Fewer trips, more done each time."
     },
     {
       "slug": "solana-beach",
       "name": "Solana Beach",
       "driveTime": "about 25 minutes",
       "direction": "north on the 5",
-      "landmarks": ["the Cedros Design District", "Fletcher Cove", "Del Mar"],
-      "blurb": "If you already drive to the Cedros District for everything else, the lounge is fifteen minutes further north and priced like Oceanside rather than the coast road."
+      "landmarks": [
+        "the Cedros Design District",
+        "Fletcher Cove",
+        "Del Mar"
+      ],
+      "blurb": "If you already drive to the Cedros District for everything else, the lounge is fifteen minutes further north and priced like Oceanside rather than the coast road.",
+      "localNote": "Solana Beach guests are usually comparing us against the coast road, and the honest pitch is that the work is the same and the pricing is Oceanside pricing. If you already drive to the Cedros District, we are fifteen minutes further north."
     }
   ]
 }
