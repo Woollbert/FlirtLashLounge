@@ -1,0 +1,38 @@
+{
+  "_readme": "General booking FAQ. Renders on /book and feeds FAQPage structured data. The cancellation window and deposit policy are TODO_CONFIRM - do not publish a policy Brooklyn does not actually enforce.",
+
+  "items": [
+    {
+      "q": "Do I need a consultation before my first appointment?",
+      "a": "For lash extensions and permanent makeup, yes, and it is built into the appointment rather than billed separately. We map the set or the brow before any work starts."
+    },
+    {
+      "q": "How do I book with a specific artist?",
+      "a": "Every artist at Flirt keeps their own book. When you book online you choose the artist first, then the service, so you are always seeing that person's real availability."
+    },
+    {
+      "q": "What is your cancellation policy?",
+      "a": "TODO_CONFIRM - please give us at least 24 hours notice so the appointment can be offered to someone else. Late cancellations and no-shows may be subject to a fee set by your artist."
+    },
+    {
+      "q": "Do you require a deposit?",
+      "a": "TODO_CONFIRM - deposits are set per artist and are applied to the cost of your service."
+    },
+    {
+      "q": "Can I come in with makeup on?",
+      "a": "For lash appointments, please arrive with a clean, makeup-free eye area. Anything left on the lash line shortens retention, and cleaning it off eats into your appointment time."
+    },
+    {
+      "q": "How early should I arrive?",
+      "a": "Five minutes is plenty. Parking is directly outside the suite."
+    },
+    {
+      "q": "Is there parking?",
+      "a": "Yes, free parking directly outside Suite Q at 1906 Oceanside Blvd."
+    },
+    {
+      "q": "Do you take walk-ins?",
+      "a": "Occasionally, if an artist has a gap, but the lounge runs on appointments. The booking calendar shows live openings, often including same-day."
+    }
+  ]
+}

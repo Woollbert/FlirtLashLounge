@@ -1,0 +1,34 @@
+{
+  "_readme": "Verbatim guest reviews, recovered word-for-word from the archived Wix homepage (site-recovery/live/live.json, capture 2026-08-19). verbatim=true means the text below is exactly what the reviewer wrote - these feed Review structured data in layout.tsx, so do not paraphrase them. Add new reviews by pasting the real text and setting verbatim: true.",
+
+  "aggregate": {
+    "ratingValue": 5,
+    "reviewCount": 95,
+    "source": "Yelp, July 2026",
+    "_note": "TODO_CONFIRM the current count before launch - this feeds structured data."
+  },
+
+  "items": [
+    {
+      "author": "Dulce B.",
+      "role": "5 stars",
+      "service": "Lash Lift & Tint",
+      "verbatim": true,
+      "quote": "I can't believe that I had been driving past this hidden gem all this time! It looks like a whole new world on the inside. The waiting area is so cute and relaxing. I love how the front desk is decorated. It feels like you're in paradise. Christina was my lash technician, she did a lash lift & tint. It was my first time and I loved my results! She was knowledgeable, easy to talk to, and professional. I would definitely come again. Relaxing environment, friendly technicians, and clean."
+    },
+    {
+      "author": "Pita L.",
+      "role": "5 stars",
+      "service": "Eyelash Extensions",
+      "verbatim": true,
+      "quote": "It's kind of hidden in the corner of the shopping center. Once you step inside it's so cute and spacious. They have a bunch of chairs through 3 rooms. I had booked Gabriela, she was really informative and friendly. I liked having my lashes done in a big room, it feels less claustrophobic than a tiny one person room. They had really good music to vibe to instead of the sleepy spa jazz. I ended up taking a lash nap. It was an overall fun experience."
+    },
+    {
+      "author": "Christa B.",
+      "role": "5 stars",
+      "service": "Brow Lamination, Lashes & Facial",
+      "verbatim": true,
+      "quote": "I can't believe I found such an amazing place that does so many various treatments! I have gotten eyebrow laminations, lash extensions, and facials here and everything has been awesome. Brooke does my eyebrows. She is so sweet and does amazing work. My eyebrows always look great! Brooklyn did my lashes and a facial. My facial was so relaxing and my skin is glowing. I was worried about my lashes not looking natural, but Brooklyn made sure to take the time to listen to what I wanted and the outcome was great, they look incredible! I will for sure keep coming back!"
+    }
+  ]
+}

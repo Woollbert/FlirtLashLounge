@@ -1,0 +1,80 @@
+{
+  "_readme": "Gift cards and membership tiers. The gift certificate denominations are the real ones from the old Wix store ($50-$300). MEMBERSHIPS ARE NEW: no membership program existed before - the tiers below are a proposed structure based on what comparable lash lounges run. Confirm them and set every price (or delete the section) before this page goes live. price=null renders as 'Ask about pricing'.",
+
+  "giftCards": {
+    "eyebrow": "Gift Cards",
+    "headlineLine1": "The easiest gift you will",
+    "headlineScript": "ever give",
+    "intro": "Good for any service, any artist, and they never expire. Send one by email in about a minute, or pick up a physical card at the lounge.",
+    "image": "/images/gift-card.jpg",
+    "imageAlt": "A Flirt Lash Lounge & Day Spa gift certificate.",
+    "secondaryImage": "/images/gift-for-you.jpg",
+    "secondaryImageAlt": "A hand-lettered 'a gift for you' card.",
+    "purchaseUrl": "TODO_CONFIRM - paste the Vagaro gift certificate URL here (the old Wix store link is gone with the domain)",
+    "amounts": [50, 100, 150, 200, 250, 300],
+    "notes": [
+      "Redeemable against any service on the menu",
+      "No expiration date",
+      "Emailed instantly, or collect a physical card in the lounge",
+      "Balances carry over between visits"
+    ]
+  },
+
+  "memberships": {
+    "eyebrow": "Memberships",
+    "headlineLine1": "For the ones who",
+    "headlineScript": "keep coming back",
+    "intro": "If you are already in the chair every few weeks, a membership is simply the cheaper way to do it. Monthly, cancel any time, and unused credits roll forward.",
+    "tiers": [
+      {
+        "slug": "lash-member",
+        "name": "The Lash Member",
+        "price": null,
+        "cadence": "per month",
+        "tagline": "For anyone on a standing fill cycle.",
+        "includes": [
+          "Two lash fills every month",
+          "10% off every additional service",
+          "10% off retail and aftercare",
+          "Priority access to the booking calendar"
+        ],
+        "featured": false
+      },
+      {
+        "slug": "glow-member",
+        "name": "The Glow Member",
+        "price": null,
+        "cadence": "per month",
+        "tagline": "Skin, on the schedule it actually wants.",
+        "includes": [
+          "One custom facial every month",
+          "One brow shape or wax service",
+          "15% off lash and brow services",
+          "10% off retail and aftercare"
+        ],
+        "featured": true
+      },
+      {
+        "slug": "full-flirt",
+        "name": "The Full Flirt",
+        "price": null,
+        "cadence": "per month",
+        "tagline": "Everything, handled.",
+        "includes": [
+          "Two lash fills every month",
+          "One custom facial every month",
+          "One brow lamination or shape every six weeks",
+          "20% off everything else on the menu",
+          "First access to new services and events"
+        ],
+        "featured": false
+      }
+    ],
+    "finePrint": [
+      "Month to month. Cancel any time with 30 days notice.",
+      "Unused credits roll forward for 90 days.",
+      "Memberships are personal and cannot be shared between guests.",
+      "TODO_CONFIRM these terms with Brooklyn before publishing."
+    ]
+  }
+}

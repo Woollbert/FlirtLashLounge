@@ -1,0 +1,50 @@
+{
+  "_readme": "The artist collective. Names are real (pulled from the old site and its reviews); every specialty, bio, and booking link marked TODO_CONFIRM is my reconstruction and needs Brooklyn's sign-off. Each artist runs an independent book, so bookingUrl can point at that artist's own Vagaro page once you have the deep links.",
+
+  "members": [
+    {
+      "slug": "brooklyn-boris",
+      "name": "Brooklyn Boris",
+      "role": "Founder & Lash Artist",
+      "specialties": ["Volume & Mega Volume", "Lash Training", "Brow Lamination"],
+      "bio": "Fifteen years behind the lash bed, split between Southern California and Melbourne, Australia. Brooklyn opened Flirt in October 2019 and teaches the next generation of lash artists through Aviara Beauty Academy.",
+      "image": "/images/team-brooklyn.jpg",
+      "imageAlt": "Brooklyn Boris, founder of Flirt Lash Lounge & Day Spa.",
+      "instagram": "https://www.instagram.com/flirtluxurylashlounge/",
+      "bookingUrl": null
+    },
+    {
+      "slug": "christina",
+      "name": "Christina",
+      "role": "Lash & Brow Artist",
+      "specialties": ["Lash Lift & Tint", "Classic Sets", "Brow Shaping"],
+      "bio": "TODO_CONFIRM - Christina is named repeatedly in reviews for her lash lift and tint work and for how thoroughly she talks guests through the process before she starts.",
+      "image": "/images/team-christina.jpg",
+      "imageAlt": "Christina, lash and brow artist at Flirt Lash Lounge.",
+      "instagram": null,
+      "bookingUrl": null
+    },
+    {
+      "slug": "gabriela",
+      "name": "Gabriela",
+      "role": "Esthetician",
+      "specialties": ["Facials", "Waxing", "Skincare Consults"],
+      "bio": "TODO_CONFIRM - Gabriela is the artist guests mention when they say they finally understood their own skin. Expect to leave with a routine you will actually follow.",
+      "image": "/images/team-gabriela.jpg",
+      "imageAlt": "Gabriela, esthetician at Flirt Lash Lounge & Day Spa.",
+      "instagram": null,
+      "bookingUrl": null
+    },
+    {
+      "slug": "brooke",
+      "name": "Brooke",
+      "role": "Brow & Skin Specialist",
+      "specialties": ["Brow Lamination", "Facials", "Permanent Makeup"],
+      "bio": "TODO_CONFIRM - Brooke handles brow transformations and skin work, and is named alongside Brooklyn in guest reviews covering lamination, lashes, and facials in a single visit.",
+      "image": "/images/team-brooke.jpg",
+      "imageAlt": "Brooke, brow and skin specialist at Flirt Lash Lounge.",
+      "instagram": null,
+      "bookingUrl": null
+    }
+  ]
+}

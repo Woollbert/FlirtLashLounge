@@ -1,0 +1,226 @@
+{
+  "_readme": "The service menu. priceFrom is intentionally null everywhere - real prices were not published on the old site and are not scrapeable from Vagaro, and inventing them would be worse than omitting them. Fill in the number (just digits, e.g. 145) and the UI switches from 'View pricing' to 'From $145' automatically. Same for durationMin.",
+
+  "items": [
+    {
+      "slug": "eyelash-extensions",
+      "name": "Eyelash Extensions",
+      "category": "Lashes",
+      "short": "Classic, hybrid, volume, and mega volume - mapped to your eye shape, not a stock photo.",
+      "priceFrom": null,
+      "durationMin": null,
+      "description": "We specialize in expert eyelash extension application, using only the safest, top-quality products on the market. Your lash health is just as important to us as making them look stunning. Each of our technicians is licensed and professionally trained in the art of eyelash extension application. We take our time to ensure each extension is individually applied, avoiding possible damage to your natural lashes. We offer Classic, Hybrid, Volume, & Mega Volume lashes. Each set is completely customizable to your unique preference. Whether you prefer a more natural look or extremely dramatic, we got you.",
+      "features": [
+        "Classic - one extension per natural lash, for a your-lashes-but-better finish",
+        "Hybrid - a mix of classic and volume, for texture and soft density",
+        "Volume - handmade fans, for a full, fluffy, weightless set",
+        "Mega Volume - the darkest, densest look on the menu",
+        "Fills every 2-3 weeks keep a set looking new",
+        "Complimentary lash map and consultation for new guests"
+      ],
+      "aftercare": [
+        "Keep them dry for the first 24 hours while the adhesive fully cures.",
+        "Cleanse daily with a lash-safe foaming cleanser. Clean lashes hold retention longer.",
+        "Brush with a spoolie each morning, never with a lash curler.",
+        "Skip oil-based cleansers, makeup removers, and waterproof mascara."
+      ],
+      "faqs": [
+        { "q": "How long does a full set take?", "a": "Plan on two to two and a half hours for a first full set. Most guests fall asleep. The room is dim, the bed is heated, and there is nothing for you to do." },
+        { "q": "Will they damage my natural lashes?", "a": "Not when they are applied correctly. Damage comes from extensions that are too heavy for the lash carrying them, or from lashes glued together at the base. Isolation is the entire skill, and it is the part we will not rush." },
+        { "q": "How often do I need fills?", "a": "Every two to three weeks. Your natural lashes shed on their own cycle, and a fill replaces what has grown out." }
+      ],
+      "imageUrl": "/images/service-eyelash-extensions.jpg",
+      "imageAlt": "A finished volume eyelash extension set with a soft cat-eye shape."
+    },
+    {
+      "slug": "lash-lift",
+      "name": "Lash Lift & Tint",
+      "category": "Lashes",
+      "short": "Your own lashes, curled from the root and tinted dark. No extensions, no upkeep.",
+      "priceFrom": null,
+      "durationMin": null,
+      "description": "A lash lift is a treatment which enhances the natural lashes by semi-permanently curling them upward. It's basically a perm for your lashes. This procedure is a more natural alternative to eyelash extensions and is suitable for any type of lashes. A Keratin lash lift involves a 4 step treatment. The solution used is a more natural alternative, and lasts longer compared to a regular perm lash lift. The solution is made of 100% natural vegan ingredients including Panthenol, which helps strengthen hair, retain moisture, and improve hair texture. The solution also contains Biotin, known as Vitamin B7, which is known for increasing the rate of hair follicle growth and growing stronger and thicker strands. Results typically last 4-6 weeks.",
+      "features": [
+        "Keratin-based lifting solution, natural vegan ingredients",
+        "Optional tint for depth without mascara",
+        "Results last 4-6 weeks",
+        "Zero daily upkeep",
+        "Ideal for guests taking a break from extensions"
+      ],
+      "aftercare": [
+        "No water, steam, or sauna for the first 24 hours.",
+        "Skip mascara and eye makeup for the first day while the curl sets.",
+        "Sleeping face-down can flatten the curl in the first week."
+      ],
+      "faqs": [
+        { "q": "How is this different from extensions?", "a": "A lift reshapes what you already have. Extensions add length and density. If your natural lashes are long but point straight down, a lift is often the better answer." },
+        { "q": "How long does it take?", "a": "About an hour, including the tint." }
+      ],
+      "imageUrl": "/images/service-lash-lift.jpg",
+      "imageAlt": "Close-up of natural lashes after a keratin lash lift and tint."
+    },
+    {
+      "slug": "brow-lamination",
+      "name": "Brow Lamination",
+      "category": "Brows",
+      "short": "A pain-free lift that sets brows full, brushed-up, and even.",
+      "priceFrom": null,
+      "durationMin": null,
+      "description": "Eyebrow lamination involves a lifting technique which perfectly shapes and fluffs your natural brows creating a full youthful look. The procedure is pain-free, adds length and volume to your brows, is pregnancy safe, and allows for easy styling. This procedure is great for anyone but especially for people with brow hair that grows downward. Results last 2-4 weeks.",
+      "features": [
+        "Pain-free - no needles, no threading, no wax required",
+        "Fills the look of sparse or patchy areas",
+        "Results last 2-4 weeks",
+        "Add a tint and shape for the full effect",
+        "Works on coarse, curly, or unruly brow hair"
+      ],
+      "aftercare": [
+        "Keep brows dry for 24 hours.",
+        "Brush them into shape each morning with a spoolie.",
+        "A drop of brow oil at night keeps the hair conditioned."
+      ],
+      "faqs": [
+        { "q": "Does it damage the brow hair?", "a": "Not when the processing time is respected. Over-processing is the risk, which is why we time it to your hair type rather than the clock on the box." },
+        { "q": "Can I get it if I have permanent makeup?", "a": "Yes. Lamination affects the hair, not the pigment underneath." }
+      ],
+      "imageUrl": "/images/service-brow-lamination.jpg",
+      "imageAlt": "Laminated brows brushed up and set, photographed in natural light."
+    },
+    {
+      "slug": "permanent-makeup",
+      "name": "Permanent Makeup",
+      "category": "Brows",
+      "short": "Ombre, microblading, and combo brows - pigment that reads as hair, not makeup.",
+      "priceFrom": null,
+      "durationMin": null,
+      "description": "Cosmetic tattooing that gives you a finished brow every morning without touching a pencil. Choose microblading for individual hair strokes, ombre powder for a soft shaded fill, or a combo of the two for definition at the tail and softness at the front. Results last up to two years. Every appointment starts with mapping and a pigment match, and includes a perfecting session six to eight weeks later.",
+      "features": [
+        "Microblading - crisp, individual hair strokes",
+        "Ombre powder brow - soft, shaded, makeup-like finish",
+        "Combo brow - strokes at the front, shading through the tail",
+        "Results last up to 2 years",
+        "Includes a perfecting session at 6-8 weeks",
+        "Full mapping and pigment match before any work begins"
+      ],
+      "aftercare": [
+        "Keep the area dry and clean for the first 7-10 days.",
+        "No sweating, swimming, saunas, or direct sun while healing.",
+        "Do not pick at flaking. It takes pigment with it.",
+        "Apply the aftercare balm exactly as directed, sparingly."
+      ],
+      "faqs": [
+        { "q": "Does it hurt?", "a": "A topical numbing agent is applied before and during. Most guests describe it as pressure and scratching rather than pain." },
+        { "q": "Why does it look so dark at first?", "a": "It should. Pigment settles and lightens by roughly 30 to 40 percent as it heals over the first two weeks. Judging the color on day one is judging it too early." },
+        { "q": "Do I really need the touch-up?", "a": "Yes. Skin heals unevenly, and the perfecting session is where the brow actually becomes finished. It is part of the service, not an upsell." }
+      ],
+      "imageUrl": "/images/service-permanent-makeup.jpg",
+      "imageAlt": "Freshly healed ombre powder brows with a soft, shaded finish."
+    },
+    {
+      "slug": "facials",
+      "name": "Facials & Skincare",
+      "category": "Skin",
+      "short": "Custom facials built around the skin you walked in with today.",
+      "priceFrom": null,
+      "durationMin": null,
+      "description": "No two faces get the same protocol. Our estheticians read your skin at the start of every appointment - hydration, barrier, congestion, sensitivity - and build the treatment from there. Cleansing, exfoliation, extractions where they are warranted, a mask matched to the day, and a massage that is genuinely part of the treatment rather than an afterthought.",
+      "features": [
+        "Fully customized, reassessed at every visit",
+        "Deep cleansing and gentle, warranted extractions",
+        "Professional-grade exfoliation",
+        "Facial massage and lymphatic work",
+        "Honest at-home routine guidance, no hard product sell"
+      ],
+      "aftercare": [
+        "Wear SPF daily. Non-negotiable after any exfoliation.",
+        "Hold off on retinol and acids for 48 to 72 hours.",
+        "Let the skin rest. No new actives for a few days."
+      ],
+      "faqs": [
+        { "q": "How often should I come in?", "a": "Every four to six weeks tracks your skin's own renewal cycle. Consistency matters far more than intensity." },
+        { "q": "Can I get a facial with lash extensions on?", "a": "Yes. Let your esthetician know and the eye area is worked around and kept dry." }
+      ],
+      "imageUrl": "/images/service-facials.jpg",
+      "imageAlt": "A custom facial treatment in progress in a warm, dimly lit spa room."
+    },
+    {
+      "slug": "waxing",
+      "name": "Waxing",
+      "category": "Skin",
+      "short": "Face and body waxing, done quickly and without the drama.",
+      "priceFrom": null,
+      "durationMin": null,
+      "description": "Brows, lip, chin, underarms, arms, legs, bikini, and Brazilian, with hard wax on delicate areas and a technique built around speed and clean removal. The room is private, the conversation is whatever you want it to be, and nobody is going to comment on your hair growth.",
+      "features": [
+        "Brow shaping, lip, chin, and full face",
+        "Underarm, arm, and full or half leg",
+        "Bikini and Brazilian, with hard wax throughout",
+        "Pre- and post-care to minimize irritation",
+        "An every-4-weeks rhythm keeps regrowth finer"
+      ],
+      "aftercare": [
+        "No heat, sweat, or sun for 24 hours.",
+        "Exfoliate gently starting on day three to prevent ingrowns.",
+        "Loose clothing for the first day after a bikini or Brazilian."
+      ],
+      "faqs": [
+        { "q": "How long does my hair need to be?", "a": "About a quarter inch, roughly two weeks of growth. Shorter than that and the wax has nothing to grip." },
+        { "q": "I am on a retinoid. Can I still wax?", "a": "Not on the area being treated. Retinoids thin the skin and waxing over them can lift it. Stop for a week beforehand and tell your esthetician." }
+      ],
+      "imageUrl": "/images/service-waxing.jpg",
+      "imageAlt": "A clean, private waxing treatment room with warm neutral finishes."
+    },
+    {
+      "slug": "nails",
+      "name": "Nails",
+      "category": "Nails",
+      "short": "Dry manicures, long-wear gel, and hand-painted art.",
+      "priceFrom": null,
+      "durationMin": null,
+      "description": "Dry manicuring, with no soaking, so the nail plate stays firm and the gel bonds properly. That is most of why a manicure lasts. Structured gel for strength, a clean cuticle line, and hand-painted art if you want it: chrome, french, micro-detail, or whatever you saved on your phone.",
+      "features": [
+        "Dry manicuring technique for longer wear",
+        "Structured gel overlays and gel extensions",
+        "Hand-painted nail art, chrome, and french",
+        "Meticulous cuticle work",
+        "Safe removal that does not shred the natural nail"
+      ],
+      "aftercare": [
+        "Cuticle oil daily. It keeps the gel flexible so it chips less.",
+        "Gloves for dishes and cleaning products.",
+        "Never peel a lifting edge. Come in for removal."
+      ],
+      "faqs": [
+        { "q": "Why a dry manicure?", "a": "Soaking swells the nail plate. It shrinks back as it dries, and the gel applied over it loosens. That is the lifting you have seen a week later." },
+        { "q": "Can I bring inspiration photos?", "a": "Please do. It is the fastest way to get exactly what you pictured." }
+      ],
+      "imageUrl": "/images/service-nails.jpg",
+      "imageAlt": "A finished structured gel manicure with hand-painted detail."
+    },
+    {
+      "slug": "bridal",
+      "name": "Bridal & Events",
+      "category": "Bridal",
+      "short": "Timed, trialed, and coordinated so the whole party is ready together.",
+      "priceFrom": null,
+      "durationMin": null,
+      "description": "Exclusive packages for soon-to-be-weds and everyone standing beside them. We work backward from the date: lamination and permanent makeup early, facials on a schedule that lets skin settle, lashes in the final week so they photograph at their absolute best. Trials for the bride, and the whole party can be booked into the lounge together.",
+      "features": [
+        "Custom timeline built backward from your wedding date",
+        "Bridal trial before the day",
+        "Whole-party bookings in the lounge",
+        "Lash, brow, skin, and nail services coordinated together",
+        "Deluxe enhancements available as add-ons"
+      ],
+      "aftercare": [],
+      "faqs": [
+        { "q": "How far out should I book?", "a": "Reach out six months ahead if you can. Permanent makeup and lamination both want time to settle, and the final-week lash appointments fill first." },
+        { "q": "When should the lashes actually be done?", "a": "Three to five days before. Long enough to settle in, close enough that they are still at peak fullness in every photograph." }
+      ],
+      "imageUrl": "/images/service-bridal.jpg",
+      "imageAlt": "A bride having her lashes finished before the ceremony."
+    }
+  ],
+
+  "categories": ["Lashes", "Brows", "Skin", "Nails", "Bridal"]
+}

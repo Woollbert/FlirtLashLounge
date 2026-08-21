@@ -1,0 +1,57 @@
+{
+  "_readme": "Booth rental / recruiting page. The rental package list and the pitch are verbatim from the archived Wix 'Join our Team' page. Rental RATES were never published there — set `rateNote` or add real numbers before promising anything.",
+
+  "eyebrow": "Booth Rental",
+  "headlineLine1": "Build your book in a room",
+  "headlineScript": "that sells for you",
+  "intro": "Flirt Lash Lounge & Day Spa offers the ultimate booth rental experience. Our luxury beauty stations are fully equipped for services such as eyelash extensions, lash lifts, skincare, waxing, permanent makeup, brow laminations, and more.",
+  "pitch": "Our main focus is on helping you achieve success with your growing business, so we've made sure our rental rates are fair and affordable to help you do just that.",
+  "heroImage": "/images/team-apron.jpg",
+  "heroImageAlt": "A Flirt artist wearing the branded salon apron.",
+  "image": "/images/team-group-2.jpg",
+  "imageAlt": "The Flirt Lash Lounge artist collective together.",
+
+  "includes": [
+    {
+      "title": "Your own space",
+      "items": [
+        "Fully equipped luxury beauty station, or a customizable private suite",
+        "24/7 salon access",
+        "Air conditioning, WiFi, and utilities included",
+        "Monthly cleaning service",
+        "Break room amenities",
+        "Security and surveillance system"
+      ]
+    },
+    {
+      "title": "Your own business",
+      "items": [
+        "Set your own schedule",
+        "Charge your own custom prices",
+        "Month-to-month rental with weekly or monthly payment options",
+        "Vagaro scheduling system with online booking",
+        "Social media marketing support",
+        "Discount on lash training and products"
+      ]
+    },
+    {
+      "title": "Real support",
+      "items": [
+        "Mentorship from a 15-year lash artist and educator",
+        "Business growth assistance",
+        "A referral network across a full-service menu",
+        "Continuing education through Aviara Beauty Academy"
+      ]
+    }
+  ],
+
+  "rateNote": "TODO_CONFIRM - rates were not published on the old site. Add the real weekly/monthly figures here, or leave this line as an invitation to call.",
+  "requirements": [
+    "Active California license appropriate to your service",
+    "Professional liability insurance",
+    "Your own tools, product, and clientele or the drive to build one"
+  ],
+
+  "ctaLabel": "Call about a station",
+  "ctaNote": "Stations open up rarely and go quickly. Call the lounge and ask for Brooklyn."
+}
