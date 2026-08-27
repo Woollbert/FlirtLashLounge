@@ -28,7 +28,7 @@ export default function SectionHeading({
   script,
   accent = "script",
   intro,
-  align = "center",
+  align = "left",
   tone = "dark",
   size = "lg",
   className = "",

@@ -25,7 +25,7 @@ export default function AboutPage() {
         script="best artists"
         intro={site.description}
         image="/images/team-group.jpg"
-        imageAlt="The Flirt Lash Lounge team photographed together outside the lounge."
+        imageAlt="The Flirt Lash Lounge team photographed together."
         imagePosition="object-[50%_25%]"
       />
 

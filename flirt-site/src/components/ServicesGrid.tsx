@@ -1,10 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import SectionHeading from "@/components/SectionHeading";
 import { site } from "@/data/site";
 import { services, priceLabel, type Service } from "@/data/services";
 
+/**
+ * Borderless. The first draft framed every service in a 1px box with a padded
+ * body, which is the shape of a template rather than of an editorial page —
+ * and repeating it three across, twice down, was most of why the menu read as
+ * a catalogue. Here the photograph is the card: a tall arch, with the name and
+ * one line set underneath in the open air.
+ */
 export function ServiceCard({
   service,
   index = 0,
@@ -13,41 +19,34 @@ export function ServiceCard({
   index?: number;
 }) {
   return (
-    <Reveal as="li" delay={(index % 3) * 90}>
-      <Link
-        href={`/services/${service.slug}`}
-        className="group block h-full bg-ivory border border-line hover:border-taupe transition-colors duration-500"
-      >
-        <div className="relative aspect-[4/3] overflow-hidden">
+    <Reveal as="li" delay={(index % 3) * 110}>
+      <Link href={`/services/${service.slug}`} className="group block">
+        <div className="relative arch aspect-[3/4] overflow-hidden bg-sand">
           <Image
             src={service.imageUrl}
             alt={service.imageAlt}
             fill
             sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 92vw"
             quality={88}
-            className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
+            className="object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]"
           />
         </div>
 
-        <div className="p-7 md:p-8">
-          <p className="eyebrow">{service.category}</p>
-          <h3 className="display-md !text-[1.6rem] mt-3">{service.name}</h3>
-          <p className="mt-3 text-[0.95rem] leading-relaxed text-mute">
-            {service.short}
-          </p>
-
-          <div className="mt-6 pt-5 border-t border-line flex items-center justify-between">
-            <span className="font-sans text-[0.68rem] uppercase tracking-wide2 text-clay">
+        <div className="pt-7">
+          <div className="flex items-baseline gap-3">
+            <span className="index-num">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <span className="h-px flex-1 bg-line" aria-hidden="true" />
+            <span className="font-sans text-[0.62rem] uppercase tracking-wide2 text-clay">
               {priceLabel(service)}
             </span>
-            <span
-              className="font-sans text-[0.68rem] uppercase tracking-wide2 text-ink inline-flex items-center gap-2"
-              aria-hidden="true"
-            >
-              Details
-              <span className="block w-5 h-px bg-ink transition-all duration-500 group-hover:w-8" />
-            </span>
           </div>
+
+          <h3 className="display-md !text-[1.7rem] mt-4">{service.name}</h3>
+          <p className="mt-3 text-[0.95rem] leading-[1.8] text-mute">
+            {service.short}
+          </p>
         </div>
       </Link>
     </Reveal>
@@ -55,7 +54,6 @@ export function ServiceCard({
 }
 
 export default function ServicesGrid({
-  /** The homepage shows a curated six; /services shows everything. */
   limit,
   withHeading = true,
 }: {
@@ -66,26 +64,38 @@ export default function ServicesGrid({
   const shown = limit ? services.slice(0, limit) : services;
 
   return (
-    <section className="section bg-cream">
+    <section className="section">
       <div className="container-wide">
         {withHeading && (
-          <SectionHeading
-            eyebrow={copy.eyebrow}
-            line1={copy.headlineLine1}
-            script={copy.headlineScript}
-            accent="italic"
-            intro={copy.intro}
-          />
+          /* Asymmetric, not centred. The eyebrow and headline sit left, the
+             standfirst drops to the right column — an editorial masthead
+             rather than another centred stack. */
+          <div className="grid lg:grid-cols-[1.15fr_1fr] gap-8 lg:gap-20 items-end">
+            <div>
+              <Reveal>
+                <p className="eyebrow">{copy.eyebrow}</p>
+              </Reveal>
+              <Reveal delay={90}>
+                <h2 className="display-lg mt-6">
+                  {copy.headlineLine1}{" "}
+                  <span className="italic text-clay">{copy.headlineScript}</span>
+                </h2>
+              </Reveal>
+            </div>
+            <Reveal delay={160}>
+              <p className="lede lg:pb-3">{copy.intro}</p>
+            </Reveal>
+          </div>
         )}
 
-        <ul className="mt-16 grid gap-6 md:gap-7 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-20 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
           {shown.map((service, i) => (
             <ServiceCard key={service.slug} service={service} index={i} />
           ))}
         </ul>
 
         {limit && limit < services.length && (
-          <Reveal className="mt-14 text-center">
+          <Reveal className="mt-20 text-center">
             <Link href="/services" className="btn btn-outline">
               {copy.ctaLabel}
             </Link>

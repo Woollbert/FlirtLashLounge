@@ -88,7 +88,10 @@
     padding-inline: clamp(1.25rem, 4vw, 3rem);
   }
   .section {
-    padding-block: clamp(4.5rem, 10vw, 8rem);
+    padding-block: clamp(5.5rem, 12vw, 11rem);
+  }
+  .section-tight {
+    padding-block: clamp(4rem, 8vw, 7rem);
   }
 
   /* Small caps label above a headline. The 0.32em tracking is the single
@@ -110,18 +113,36 @@
      serif scales continuously — Bodoni's thin strokes look wrong when they
      step. */
   .display-xl {
-    font-size: clamp(2.75rem, 8vw, 6.5rem);
-    line-height: 0.95;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.9rem, 8.2vw, 7rem);
+    line-height: 0.94;
+    letter-spacing: -0.022em;
   }
   .display-lg {
-    font-size: clamp(2.25rem, 5.5vw, 4.25rem);
-    line-height: 1.02;
-    letter-spacing: -0.015em;
+    font-size: clamp(2.35rem, 5.8vw, 4.75rem);
+    line-height: 1.0;
+    letter-spacing: -0.018em;
   }
   .display-md {
-    font-size: clamp(1.75rem, 3.4vw, 2.75rem);
-    line-height: 1.1;
+    font-size: clamp(1.8rem, 3.6vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.012em;
+  }
+
+  /* Index numeral for the editorial service list — a real sequence, so the
+     numbering carries information rather than decorating. */
+  .index-num {
+    font-family: var(--font-sans), sans-serif;
+    font-size: 0.66rem;
+    letter-spacing: 0.24em;
+    color: var(--color-shell);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Soft-edged image frame: the arch is the loud shape, this is the quiet one.
+     A large asymmetric radius reads as fabric rather than as a rounded box. */
+  .petal {
+    border-radius: 46% 46% 44% 44% / 8% 8% 6% 6%;
+    overflow: hidden;
   }
   .script-accent {
     font-family: var(--font-script), cursive;
@@ -135,8 +156,8 @@
   }
 
   .lede {
-    font-size: clamp(1rem, 1.35vw, 1.125rem);
-    line-height: 1.75;
+    font-size: clamp(1.02rem, 1.4vw, 1.2rem);
+    line-height: 1.85;
     color: var(--color-mute);
   }
 

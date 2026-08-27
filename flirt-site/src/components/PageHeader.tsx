@@ -6,16 +6,26 @@ type Props = {
   title: string;
   script?: string;
   intro?: string;
-  /** Optional band photo. Without one the header is a quiet cream slab, which
-   *  is the right call on text-led pages like /book. */
+  /** When present the header becomes a split: type left, arch photo right. */
   image?: string;
   imageAlt?: string;
-  /** Tailwind object-position for the band photo. The band is short and wide,
-   *  so `cover` centres on whatever sits mid-frame — which decapitates a group
-   *  shot where the faces are near the top. Pass e.g. "object-[50%_25%]". */
+  /** Tailwind object-position utility, for photos whose subject is not
+   *  centred — e.g. a group shot where the faces sit high in the frame. */
   imagePosition?: string;
 };
 
+/**
+ * Two shapes, not one.
+ *
+ * The first draft used a single centred slab on all ten interior pages, with
+ * an optional full-width photo band under it — so every page opened
+ * identically and the band cropped portrait photography into a letterbox.
+ *
+ * With an image, the header is now a split: the type sits left, the photograph
+ * takes a tall arch on the right at close to its own ratio. Without one, the
+ * type runs left against an open sand ground. Either way it is asymmetric,
+ * which is what keeps ten pages from opening the same way.
+ */
 export default function PageHeader({
   eyebrow,
   title,
@@ -23,48 +33,69 @@ export default function PageHeader({
   intro,
   image,
   imageAlt = "",
-  imagePosition = "",
+  imagePosition = "object-center",
 }: Props) {
+  const split = Boolean(image);
+
   return (
-    <header className="relative bg-sand/40 border-b border-line">
-      {/* pt clears the fixed navbar; every interior page starts here. */}
-      <div className="container-wide pt-[calc(var(--nav-h)+3.5rem)] pb-14 md:pb-20 text-center">
-        {eyebrow && (
-          <Reveal>
-            <p className="eyebrow">{eyebrow}</p>
+    <header className="relative bg-cream border-b border-line overflow-hidden">
+      <div
+        className={`container-wide pt-[calc(var(--nav-h)+5rem)] pb-16 md:pb-24 ${
+          split
+            ? "lg:grid lg:grid-cols-[1.1fr_0.8fr] lg:gap-20 lg:items-center"
+            : ""
+        }`}
+      >
+        <div className={split ? "" : "max-w-3xl"}>
+          {eyebrow && (
+            <Reveal>
+              <p className="eyebrow">{eyebrow}</p>
+            </Reveal>
+          )}
+          <Reveal delay={70}>
+            <h1 className="display-lg mt-6">
+              {title}
+              {script && (
+                <>
+                  {" "}
+                  <span className="script-accent">{script}</span>
+                </>
+              )}
+            </h1>
           </Reveal>
-        )}
-        <Reveal delay={70}>
-          <h1 className="display-lg mt-5">
-            {title}
-            {script && (
-              <>
-                {" "}
-                <span className="script-accent">{script}</span>
-              </>
-            )}
-          </h1>
-        </Reveal>
-        {intro && (
-          <Reveal delay={140}>
-            <p className="lede mt-6 max-w-2xl mx-auto">{intro}</p>
+          <Reveal delay={130}>
+            <span
+              className="block h-px w-20 bg-shell mt-8"
+              aria-hidden="true"
+            />
+          </Reveal>
+          {intro && (
+            <Reveal delay={170}>
+              <p className="lede mt-7 max-w-xl">{intro}</p>
+            </Reveal>
+          )}
+        </div>
+
+        {split && (
+          <Reveal delay={200} className="hidden lg:block relative mt-0">
+            <div
+              className="absolute -left-5 -bottom-5 w-full h-full arch border border-shell pointer-events-none"
+              aria-hidden="true"
+            />
+            <div className="relative arch aspect-[3/4] w-full">
+              <Image
+                src={image!}
+                alt={imageAlt}
+                fill
+                priority
+                sizes="(min-width: 1024px) 38vw, 92vw"
+                quality={92}
+                className={`object-cover ${imagePosition}`}
+              />
+            </div>
           </Reveal>
         )}
       </div>
-
-      {image && (
-        <div className="relative h-[18rem] md:h-[26rem]">
-          <Image
-            src={image}
-            alt={imageAlt}
-            fill
-            priority
-            sizes="100vw"
-            quality={92}
-            className={`object-cover ${imagePosition}`}
-          />
-        </div>
-      )}
     </header>
   );
 }

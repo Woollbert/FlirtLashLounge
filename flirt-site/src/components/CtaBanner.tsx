@@ -13,7 +13,7 @@ export default function CtaBanner() {
   const cta = site.sections.cta;
 
   return (
-    <section className="relative">
+    <section className="relative bg-cream">
       <div className="relative h-[26rem] md:h-[34rem]">
         <Image
           src={cta.image}
@@ -31,7 +31,7 @@ export default function CtaBanner() {
 
       <div className="container-wide">
         <Reveal className="relative -mt-24 md:-mt-32 mb-0">
-          <div className="bg-ivory border border-line px-7 py-12 md:px-16 md:py-16 max-w-3xl mx-auto text-center shadow-soft">
+          <div className="bg-cream px-7 py-14 md:px-20 md:py-20 max-w-3xl mx-auto text-center">
             <p className="eyebrow">{cta.eyebrow}</p>
             <h2 className="display-lg mt-5">
               {cta.headlineLine1}{" "}
