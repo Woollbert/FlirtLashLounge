@@ -21,6 +21,13 @@ import sharp from "sharp";
 const SRC = "C:/Users/darre/Downloads/flirtlash-evidence/site-recovery";
 const EXPORT_IMG = path.join(SRC, "export/site/assets/img");
 const LIVE_IMG = path.join(SRC, "live/img");
+// Second batch, emailed by Brooklyn 2026-08-21 ("here are some Flirt photos to
+// use!") — salon interiors, which the recovered library had almost none of.
+const ALBUM =
+  "C:/Users/darre/AppData/Local/Temp/claude/c--Users-darre-FlirtLashLounge/6a1ff7ad-3bed-4cb1-b79b-4f01b2760398/scratchpad/album";
+// Her own headshot, the one she uses for Aviara Design Co. She asked for this
+// specifically: the two portraits I had guessed at were not her.
+const AVIARA = "C:/Users/darre/AviaraDesignCo/aviara-site/public/images";
 const OUT = path.join(process.cwd(), "public/images");
 
 /** dest name -> [source file, width, {fit position}] */
@@ -28,7 +35,6 @@ const MAP = {
   // Hero + section imagery
   "hero-lounge.jpg": ["e962b6_0d1730a45ee644bbbc4e676fbd033611_mv2.jpg", 3200],
   "intro-interior.jpg": ["e962b6_e74c38eafb82481e9b6dd914755abfef_mv2.jpg", 1600],
-  "brooklyn-owner.jpg": ["e962b6_f9d40324f1d643abb1bd9b60457936d5_mv2.jpg", 1400],
   "cta-lashes.jpg": ["e962b6_871310fb40384e5aabc4180d9156465f_mv2.jpg", 2400],
 
   // Service menu
@@ -42,8 +48,24 @@ const MAP = {
   "service-facials.jpg": ["e962b6_ef760cb464254ac1b507929fc924ca4f_mv2.jpg", 1400],
   "service-nails.jpg": ["e962b6_75fc411e797f42fb9cb89094cae549bf_mv2.jpg", 1400],
 
-  // Team
-  "team-brooklyn.jpg": ["e962b6_0a652f94f8e34e1a871413785a4f86f5_mv2.jpg", 1000],
+  // Team — her actual headshot, not the guesses from the first draft.
+  "team-brooklyn.jpg": ["brooklyn-portrait.jpeg", 1400],
+  "brooklyn-owner.jpg": ["brooklyn-portrait.jpeg", 1600],
+
+  // Salon interiors (Brooklyn's second batch). The first draft had none of
+  // these, which is most of why it read as a lash catalogue rather than a
+  // light, airy room you would want to sit in.
+  "lounge-seating.jpg": ["IMG_7009.jpeg", 2400],
+  "lounge-sign.jpg": ["IMG_6974.jpeg", 2000],
+  "lounge-neon.jpg": ["IMG_6839.jpeg", 2000],
+  "lounge-chandelier.jpg": ["IMG_6934.jpeg", 2000],
+  "lounge-candle.jpg": ["ADC405B6-E330-4A27-A09C-01B9EE94967B.JPG", 2000],
+  "lounge-florals.jpg": ["A62AB1E7-AB77-4794-B354-2B5E5198B328.JPG", 1600],
+  "lash-detail.jpg": ["IMG_1649.jpg", 1178],
+  "academy-graduate.jpg": ["IMG_0066 (2).jpg", 1024],
+  "academy-graduates-3.jpg": ["IMG_1651.jpg", 1178],
+  "nails-artist.jpg": ["IMG_2025-11-20-235408.jpg", 1200],
+  "logo-stamp.png": ["PhotoRoom_20230721_225826.PNG", 636],
 
   // Training / academy
   "training-class.jpg": ["e962b6_6835740dc0db4c6fbaea40170ef17504_mv2.jpg", 1800],
@@ -164,7 +186,7 @@ const PLACEHOLDERS = {
 };
 
 function findSource(name) {
-  for (const dir of [EXPORT_IMG, LIVE_IMG]) {
+  for (const dir of [EXPORT_IMG, LIVE_IMG, ALBUM, AVIARA]) {
     const p = path.join(dir, name);
     if (fs.existsSync(p)) return p;
   }
@@ -196,6 +218,9 @@ async function placeholder(dest, label, w, h) {
  *  Add a slot here whenever it starts being used somewhere larger. */
 const NEEDED = {
   "hero-lounge.jpg": 2880,
+  "lounge-seating.jpg": 2400,
+  "lounge-sign.jpg": 1800,
+  "lounge-candle.jpg": 1600,
   "cta-lashes.jpg": 2880,
   "intro-interior.jpg": 1140,
   "brooklyn-owner.jpg": 1140,

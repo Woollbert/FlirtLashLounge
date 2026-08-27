@@ -125,61 +125,37 @@ export default function GiftCardsPage() {
                 <article
                   className={`h-full flex flex-col p-8 md:p-9 border ${
                     tier.featured
-                      ? "bg-ink text-cream border-ink"
+                      ? "bg-oat border-shell"
                       : "bg-ivory border-line"
                   }`}
                 >
                   {tier.featured && (
-                    <p className="eyebrow eyebrow-light mb-4">Most popular</p>
+                    <p className="eyebrow mb-4">Most popular</p>
                   )}
-                  <h3
-                    className={`display-md !text-[1.6rem] ${
-                      tier.featured ? "text-cream" : ""
-                    }`}
-                  >
+                  <h3 className="display-md !text-[1.6rem]">
                     {tier.name}
                   </h3>
-                  <p
-                    className={`mt-3 text-[0.9rem] ${
-                      tier.featured ? "text-taupe" : "text-clay"
-                    }`}
-                  >
+                  <p className="mt-3 text-[0.9rem] text-clay">
                     {tier.tagline}
                   </p>
 
-                  <p
-                    className={`mt-7 font-display text-4xl ${
-                      tier.featured ? "text-cream" : "text-ink"
-                    }`}
-                  >
+                  <p className="mt-7 font-display text-4xl text-ink">
                     {money(tier.price)}
                     {tier.price != null && (
-                      <span
-                        className={`ml-2 font-sans text-[0.6rem] uppercase tracking-wide2 ${
-                          tier.featured ? "text-cream/60" : "text-mute"
-                        }`}
-                      >
+                      <span className="ml-2 font-sans text-[0.6rem] uppercase tracking-wide2 text-mute">
                         {tier.cadence}
                       </span>
                     )}
                   </p>
 
-                  <ul
-                    className={`mt-8 space-y-3.5 flex-1 border-t pt-7 ${
-                      tier.featured ? "border-cream/20" : "border-line"
-                    }`}
-                  >
+                  <ul className={`mt-8 space-y-3.5 flex-1 border-t pt-7 ${tier.featured ? "border-shell" : "border-line"}`}>
                     {tier.includes.map((item) => (
                       <li key={item} className="flex gap-3 items-start">
                         <span
                           className="mt-[0.65em] shrink-0 w-3 h-px bg-taupe"
                           aria-hidden="true"
                         />
-                        <span
-                          className={`text-[0.92rem] leading-relaxed ${
-                            tier.featured ? "text-cream/75" : "text-mute"
-                          }`}
-                        >
+                        <span className="text-[0.92rem] leading-relaxed text-mute">
                           {item}
                         </span>
                       </li>
@@ -188,7 +164,7 @@ export default function GiftCardsPage() {
 
                   <a
                     href={`tel:${site.phoneTel}`}
-                    className={`btn mt-9 w-full ${tier.featured ? "btn-light" : "btn-outline"}`}
+                    className={`btn mt-9 w-full ${tier.featured ? "btn-ink" : "btn-outline"}`}
                   >
                     Ask about this
                   </a>

@@ -12,7 +12,7 @@ import { site } from "@/data/site";
 export const metadata: Metadata = {
   title: "About & Team",
   description:
-    "Meet Brooklyn Boris and the team of independent beauty professionals behind Flirt Lash Lounge & Day Spa in Oceanside, California.",
+    "Meet Brooklyn James and the team of independent beauty professionals behind Flirt Lash Lounge & Day Spa in Oceanside, California.",
   alternates: { canonical: "/about" },
 };
 
@@ -26,6 +26,7 @@ export default function AboutPage() {
         intro={site.description}
         image="/images/team-group.jpg"
         imageAlt="The Flirt Lash Lounge team photographed together outside the lounge."
+        imagePosition="object-[50%_25%]"
       />
 
       <AboutOwner showCta={false} />

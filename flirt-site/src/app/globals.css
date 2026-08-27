@@ -3,17 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --color-cream: #f7f2eb;
+  --color-cream: #f7f3ee;
   --color-ivory: #fcfaf7;
-  --color-sand: #eae0d2;
-  --color-oat: #dccfbc;
-  --color-ink: #1b1714;
-  --color-espresso: #2c2521;
-  --color-mute: #6a5e53;
-  --color-taupe: #b79a7c;
-  --color-clay: #795e44;
+  --color-sand: #e8ded2;
+  --color-oat: #d9d3c5;
+  --color-shell: #bcae98;
+  --color-taupe: #b6a796;
+  --color-ink: #43352d;
+  --color-espresso: #52443a;
+  --color-mute: #5e5145;
+  --color-clay: #6a5540;
   --color-rose: #c9a493;
-  --color-line: #e3d8c8;
+  --color-line: #e2dace;
   /* Height of the fixed navbar. Used by scroll-padding and by any section
      that needs to sit flush beneath it. */
   --nav-h: 4.75rem;
@@ -34,6 +35,14 @@
   }
   body {
     background-color: var(--color-cream);
+    /* Two very wide, very faint washes. This is the "light on plaster" quality
+       in the references — the ground is never a flat fill, it falls off toward
+       the corners the way a sunlit wall does. Sections that set their own
+       background sit on top of it; the gaps between them pick it up. */
+    background-image:
+      radial-gradient(120vw 80vh at 12% -12%, rgba(232, 222, 210, 0.7), transparent 62%),
+      radial-gradient(90vw 70vh at 100% 12%, rgba(217, 211, 197, 0.5), transparent 60%);
+    background-repeat: no-repeat;
     font-family: var(--font-sans), system-ui, sans-serif;
     color: var(--color-espresso);
     overscroll-behavior-y: contain;
@@ -49,7 +58,7 @@
     text-wrap: balance;
   }
   ::selection {
-    background-color: var(--color-taupe);
+    background-color: var(--color-shell);
     color: var(--color-ink);
   }
   *:focus-visible {
@@ -92,8 +101,9 @@
     font-weight: 500;
     color: var(--color-clay);
   }
+  /* For labels sitting on a photograph or the espresso gradient. */
   .eyebrow-light {
-    color: var(--color-taupe);
+    color: var(--color-sand);
   }
 
   /* Display headline. clamp() rather than breakpoint jumps so the hairline
@@ -134,7 +144,7 @@
     display: inline-block;
     width: 3rem;
     height: 1px;
-    background-color: var(--color-taupe);
+    background-color: var(--color-shell);
     vertical-align: middle;
   }
 

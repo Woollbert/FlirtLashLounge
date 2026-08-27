@@ -73,20 +73,20 @@ export default function JoinPage() {
         </div>
       </section>
 
-      <section className="section bg-ink text-cream">
+      <section className="section bg-sand">
         <div className="container-wide">
           <Reveal className="text-center max-w-2xl mx-auto">
-            <p className="eyebrow eyebrow-light">The package</p>
-            <h2 className="display-lg mt-5 text-cream">
-              Everything you need, <span className="script-accent !text-taupe">included</span>
+            <p className="eyebrow">The package</p>
+            <h2 className="display-lg mt-5">
+              Everything you need, <span className="script-accent">included</span>
             </h2>
           </Reveal>
 
           <div className="mt-16 grid gap-10 md:grid-cols-3">
             {join.includes.map((group, i) => (
               <Reveal key={group.title} delay={i * 110}>
-                <div className="border-t border-cream/20 pt-7">
-                  <h3 className="display-md !text-[1.4rem] text-cream">
+                <div className="border-t border-shell pt-7">
+                  <h3 className="display-md !text-[1.4rem]">
                     {group.title}
                   </h3>
                   <ul className="mt-6 space-y-3.5">
@@ -96,7 +96,7 @@ export default function JoinPage() {
                           className="mt-[0.65em] shrink-0 w-3 h-px bg-taupe"
                           aria-hidden="true"
                         />
-                        <span className="text-[0.92rem] leading-relaxed text-cream/70">
+                        <span className="text-[0.92rem] leading-relaxed text-mute">
                           {item}
                         </span>
                       </li>
@@ -108,7 +108,7 @@ export default function JoinPage() {
           </div>
 
           <Reveal className="mt-16 text-center">
-            <a href={`tel:${site.phoneTel}`} className="btn btn-light">
+            <a href={`tel:${site.phoneTel}`} className="btn btn-ink">
               Call {site.phone}
             </a>
           </Reveal>

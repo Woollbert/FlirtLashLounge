@@ -1,6 +1,5 @@
 {
   "_readme": "Single source of truth for business facts and page copy. Fields marked TODO_CONFIRM still need Brooklyn's sign-off. Body copy marked as recovered is verbatim from the archived Wix site (site-recovery/live/live.json, capture 2026-08-19) - it is her own voice, so prefer editing it over replacing it wholesale.",
-
   "name": "Flirt Lash Lounge & Day Spa",
   "shortName": "Flirt Lash Lounge",
   "tagline": "Let us pamper you. You deserve it.",
@@ -9,7 +8,6 @@
   "metaDescription": "Oceanside's luxury beauty retreat. Eyelash extensions, lash lifts, brow lamination, permanent makeup, facials, waxing, and nails. Book online today.",
   "url": "https://www.flirtluxurylashlounge.com",
   "foundedYear": 2019,
-
   "phone": "(760) 297-6343",
   "phoneTel": "+17602976343",
   "email": "TODO_CONFIRM_hello@flirtluxurylashlounge.com",
@@ -22,22 +20,31 @@
     "postalCode": "92054",
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=1906+Oceanside+Blvd+Ste+Q+Oceanside+CA+92054"
   },
-  "geo": { "lat": 33.1892, "lng": -117.3505 },
-
+  "geo": {
+    "lat": 33.1892,
+    "lng": -117.3505
+  },
   "hours": [
-    { "day": "Monday – Friday", "time": "8:00 am – 8:00 pm" },
-    { "day": "Saturday", "time": "By appointment" },
-    { "day": "Sunday", "time": "By appointment" }
+    {
+      "day": "Monday – Friday",
+      "time": "8:00 am – 8:00 pm"
+    },
+    {
+      "day": "Saturday",
+      "time": "By appointment"
+    },
+    {
+      "day": "Sunday",
+      "time": "By appointment"
+    }
   ],
   "hoursNote": "Hours vary depending on artist availability. Live openings are always on the booking calendar.",
-
   "social": {
     "instagram": "https://www.instagram.com/flirtluxurylashlounge/",
     "facebook": "https://www.facebook.com/flirtluxurylashlounge/",
     "yelp": "https://www.yelp.com/biz/flirt-lash-lounge-and-day-spa-oceanside-3",
     "instagramHandle": "@flirtluxurylashlounge"
   },
-
   "hero": {
     "eyebrow": "Oceanside, California",
     "headlineLine1": "Wake up",
@@ -45,11 +52,10 @@
     "subhead": "Let us pamper you. You deserve it. Lashes, brows, skin, and nails by North County's most talented independent artists.",
     "ctaPrimaryLabel": "Book an appointment",
     "ctaSecondaryLabel": "View the menu",
-    "bgImage": "/images/hero-lounge.jpg",
-    "bgImageAlt": "A Flirt lash artist applying individual eyelash extensions to a reclining guest.",
+    "bgImage": "/images/lounge-seating.jpg",
+    "bgImageAlt": "The Flirt Lash Lounge waiting area — linen pillows, palms, and the gold Flirt sign on white hexagon tile.",
     "scrollLabel": "Scroll"
   },
-
   "marquee": [
     "Eyelash Extensions",
     "Lash Lifts",
@@ -60,7 +66,6 @@
     "Nails",
     "Bridal"
   ],
-
   "sections": {
     "intro": {
       "eyebrow": "Welcome to Flirt",
@@ -73,9 +78,18 @@
       "image": "/images/intro-interior.jpg",
       "imageAlt": "Three Flirt artists in branded aprons in front of the gold Flirt wall in the lounge.",
       "stats": [
-        { "value": "2019", "label": "Serving North County" },
-        { "value": "95+", "label": "Five-star reviews" },
-        { "value": "3", "label": "Treatment rooms" }
+        {
+          "value": "2019",
+          "label": "Serving North County"
+        },
+        {
+          "value": "95+",
+          "label": "Five-star reviews"
+        },
+        {
+          "value": "3",
+          "label": "Treatment rooms"
+        }
       ]
     },
     "services": {
@@ -88,7 +102,7 @@
     "about": {
       "eyebrow": "Meet the Owner",
       "headlineLine1": "Brooklyn",
-      "headlineScript": "Boris",
+      "headlineScript": "James",
       "role": "Founder · Lash Artist · Educator · Beauty Business Coach",
       "body": [
         "Hello! I'm Brooklyn, the Owner of Flirt, Beauty Business Coach, Lash Artist & Educator. I've been doing lashes exclusively for over 13 years, both in California and Melbourne Australia.",
@@ -97,7 +111,7 @@
       ],
       "_bodyNote": "Recovered verbatim from the archived site (written ~2024, hence 'over 13 years'). TODO_CONFIRM: the current live training page says 15 years - update the number here if you want it current.",
       "image": "/images/brooklyn-owner.jpg",
-      "imageAlt": "Brooklyn Boris, founder of Flirt Lash Lounge & Day Spa.",
+      "imageAlt": "Brooklyn James, founder of Flirt Lash Lounge & Day Spa.",
       "signature": "Brooklyn"
     },
     "gallery": {
@@ -117,11 +131,10 @@
       "headlineLine1": "Let us pamper you.",
       "headlineScript": "You deserve it.",
       "body": "Booking takes about a minute. New guests: start with a consultation and we will build the set around your natural lash line, not a stock photo.",
-      "image": "/images/cta-lashes.jpg",
-      "imageAlt": "Close-up of a finished eyelash extension set with a soft cat-eye shape."
+      "image": "/images/lounge-sign.jpg",
+      "imageAlt": "The gold Flirt wordmark mounted on the lounge’s white hexagon tile wall."
     }
   },
-
   "seo": {
     "gaMeasurementId": "",
     "gscVerification": "",

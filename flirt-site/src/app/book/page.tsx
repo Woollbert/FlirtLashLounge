@@ -43,12 +43,10 @@ export default function BookPage() {
               no matter how far down the form the guest has scrolled. */}
           <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)] space-y-6">
             <Reveal>
-              <div className="bg-ink text-cream p-8 md:p-9">
-                <p className="eyebrow eyebrow-light">Fastest</p>
-                <h2 className="display-md !text-[1.75rem] mt-4 text-cream">
-                  Book online
-                </h2>
-                <p className="mt-4 text-[0.92rem] leading-relaxed text-cream/70">
+              <div className="bg-sand border border-shell p-8 md:p-9">
+                <p className="eyebrow">Fastest</p>
+                <h2 className="display-md !text-[1.75rem] mt-4">Book online</h2>
+                <p className="mt-4 text-[0.92rem] leading-relaxed text-mute">
                   Live availability for every artist, 24 hours a day. Choose your
                   artist first, then the service.
                 </p>
@@ -56,7 +54,7 @@ export default function BookPage() {
                   href={site.bookingUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-light w-full mt-7"
+                  className="btn btn-ink w-full mt-7"
                 >
                   Open the calendar
                 </a>

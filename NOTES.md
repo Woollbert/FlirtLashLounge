@@ -1,5 +1,39 @@
 # Flirt Lash Lounge — build notes & launch checklist
 
+## Second draft (2026-08-27) — Brooklyn's direction
+
+She reviewed the first draft and kept two things: **the moving strip of
+services and the "Welcome to Flirt" section under it.** Everything else was
+redone against the references she sent — the SOLÉA STUDIO identity board and
+the Coastal Cove palette strip.
+
+What changed and why:
+
+- **No black anywhere.** The deepest value in the system is now espresso
+  `#43352D`, straight off her SOLÉA reference. Every dark section — the hero
+  panel, the owner letter, the footer, the booth-rental band, the featured
+  cards — is now sand or ivory. `tailwind.config.ts` carries the whole palette
+  with its source names.
+- **The hero is light.** It was a photo under a dark scrim with the copy on an
+  espresso panel. It is now the salon's own waiting area under an *ivory* veil,
+  so the room reads as sunlit and the type sits on it in espresso.
+- **The navbar no longer fades in.** It used to be transparent with cream text
+  over a dark hero. With a light hero that would have vanished, and the
+  transparent state bought nothing but a contrast gamble.
+- **Her actual photograph.** She asked for the headshot she uses for Aviara
+  Design Co. Worth noting the two portraits in the first draft were *not her* —
+  they were other people from the recovered library, which is exactly the risk
+  the first-draft notes flagged.
+- **Her salon photography.** She emailed 14 new photos, mostly interiors, which
+  the recovered library had almost none of. That is most of why the first draft
+  read as a lash catalogue rather than a room you would want to sit in.
+- **Surname.** Her email signature is Brooklyn **James**; the archived 2024
+  site said Boris. The site now says James throughout — confirm.
+
+Still open: everything in the launch checklist below. She also said stock
+photography is fine for any remaining gaps.
+
+
 Built 2026-08-20. Stack matches AviaraDesignCo: Next.js 15 (App Router) +
 React 19 + Tailwind 3 + TypeScript, deployed as static pages wherever possible.
 

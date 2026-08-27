@@ -42,7 +42,7 @@ export default function Logo({ className = "", tone = "dark", compact = false }:
       {!compact && (
         <span
           className={`font-sans text-[0.47rem] md:text-[0.5rem] uppercase tracking-luxe mt-[0.45em] ml-[0.15em] ${
-            light ? "text-cream/75" : "text-espresso/70"
+            light ? "text-cream/85" : "text-espresso"
           }`}
         >
           Lash Lounge &amp; Day Spa

@@ -16,23 +16,9 @@ const NAV = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  // Only the homepage puts a full-bleed photo behind the bar; every other
-  // route starts with a cream page header, so the bar is opaque from the top.
-  const overlay = pathname === "/";
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const panelRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!overlay) return;
-    // Flip once the hero has scrolled far enough that cream-on-photo would
-    // start landing on the pale lower half of the image.
-    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.72);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [overlay]);
 
   // Close the drawer on navigation — Next keeps the layout mounted across
   // route changes, so nothing else would.
@@ -87,16 +73,13 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  const solid = !overlay || scrolled;
-
   return (
     <>
+    {/* Always solid. The first draft faded the bar in over a dark hero; the
+        hero is now ivory-veiled, so cream-on-photo would have disappeared and
+        the transparent state bought nothing but a contrast gamble. */}
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow] duration-500 ${
-        solid
-          ? "bg-cream/95 backdrop-blur-md border-b border-line"
-          : "bg-transparent border-b border-transparent"
-      }`}
+      className="fixed inset-x-0 top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-line"
       style={{ height: "var(--nav-h)" }}
     >
       <nav
@@ -104,13 +87,11 @@ export default function Navbar() {
         aria-label="Primary"
       >
         <Link href="/" className="block" aria-label={`${site.name} — home`}>
-          <Logo tone={solid ? "dark" : "light"} />
+          <Logo />
         </Link>
 
         <ul
-          className={`hidden lg:flex items-center gap-9 transition-colors duration-500 ${
-            solid ? "text-espresso" : "text-cream"
-          }`}
+          className="hidden lg:flex items-center gap-9 text-espresso"
         >
           {NAV.map((item) => (
             <li key={item.href}>
@@ -128,17 +109,13 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href={`tel:${site.phoneTel}`}
-            className={`hidden lg:inline-block link-underline font-sans text-[0.7rem] uppercase tracking-wide2 transition-colors duration-500 ${
-              solid ? "text-espresso" : "text-cream"
-            }`}
+            className="hidden lg:inline-block link-underline font-sans text-[0.7rem] uppercase tracking-wide2 text-espresso"
           >
             {site.phone}
           </a>
           <Link
             href="/book"
-            className={`hidden sm:inline-flex btn !py-3 !px-6 ${
-              solid ? "btn-ink" : "btn-light"
-            }`}
+            className="hidden sm:inline-flex btn !py-3 !px-6 btn-ink"
           >
             Book Now
           </Link>
@@ -147,9 +124,7 @@ export default function Navbar() {
             type="button"
             ref={triggerRef}
             onClick={() => setOpen((v) => !v)}
-            className={`lg:hidden -mr-2 p-2 transition-colors duration-500 ${
-              solid ? "text-ink" : "text-cream"
-            }`}
+            className="lg:hidden -mr-2 p-2 text-ink"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}

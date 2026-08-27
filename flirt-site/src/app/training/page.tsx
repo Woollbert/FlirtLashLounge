@@ -8,7 +8,7 @@ import { site } from "@/data/site";
 export const metadata: Metadata = {
   title: "Lash Training | Aviara Beauty Academy",
   description:
-    "Southern California's premier eyelash extension training program, taught by Brooklyn Boris at Flirt Lash Lounge & Day Spa in Oceanside, CA.",
+    "Southern California's premier eyelash extension training program, taught by Brooklyn James at Flirt Lash Lounge & Day Spa in Oceanside, CA.",
   alternates: { canonical: "/training" },
 };
 
@@ -61,45 +61,25 @@ export default function TrainingPage() {
                 <article
                   className={`h-full flex flex-col p-8 border ${
                     course.featured
-                      ? "bg-ink text-cream border-ink"
+                      ? "bg-oat border-shell"
                       : "bg-ivory border-line"
                   }`}
                 >
                   {course.featured && (
-                    <p className="eyebrow eyebrow-light mb-4">Most complete</p>
+                    <p className="eyebrow mb-4">Most complete</p>
                   )}
-                  <h3
-                    className={`display-md !text-[1.45rem] ${
-                      course.featured ? "text-cream" : ""
-                    }`}
-                  >
+                  <h3 className="display-md !text-[1.45rem]">
                     {course.name}
                   </h3>
-                  <p
-                    className={`mt-4 text-[0.9rem] leading-relaxed flex-1 ${
-                      course.featured ? "text-cream/70" : "text-mute"
-                    }`}
-                  >
+                  <p className="mt-4 text-[0.9rem] leading-relaxed flex-1 text-mute">
                     {course.summary}
                   </p>
-                  <div
-                    className={`mt-7 pt-5 border-t ${
-                      course.featured ? "border-cream/20" : "border-line"
-                    }`}
-                  >
-                    <p
-                      className={`font-display text-2xl ${
-                        course.featured ? "text-cream" : "text-ink"
-                      }`}
-                    >
+                  <div className={`mt-7 pt-5 border-t ${course.featured ? "border-shell" : "border-line"}`}>
+                    <p className="font-display text-2xl text-ink">
                       {money(course.price)}
                     </p>
                     {!course.duration.startsWith("TODO") && (
-                      <p
-                        className={`mt-1 font-sans text-[0.6rem] uppercase tracking-wide2 ${
-                          course.featured ? "text-taupe" : "text-mute"
-                        }`}
-                      >
+                      <p className="mt-1 font-sans text-[0.6rem] uppercase tracking-wide2 text-mute">
                         {course.duration}
                       </p>
                     )}

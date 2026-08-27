@@ -10,6 +10,10 @@ type Props = {
    *  is the right call on text-led pages like /book. */
   image?: string;
   imageAlt?: string;
+  /** Tailwind object-position for the band photo. The band is short and wide,
+   *  so `cover` centres on whatever sits mid-frame — which decapitates a group
+   *  shot where the faces are near the top. Pass e.g. "object-[50%_25%]". */
+  imagePosition?: string;
 };
 
 export default function PageHeader({
@@ -19,6 +23,7 @@ export default function PageHeader({
   intro,
   image,
   imageAlt = "",
+  imagePosition = "",
 }: Props) {
   return (
     <header className="relative bg-sand/40 border-b border-line">
@@ -56,7 +61,7 @@ export default function PageHeader({
             priority
             sizes="100vw"
             quality={92}
-            className="object-cover"
+            className={`object-cover ${imagePosition}`}
           />
         </div>
       )}

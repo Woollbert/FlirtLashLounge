@@ -26,12 +26,12 @@ export default function CtaBanner() {
           // frames the branded gold label instead.
           className="object-cover object-[50%_35%]"
         />
-        <div className="absolute inset-0 bg-ink/25" aria-hidden="true" />
+        <div className="absolute inset-0 bg-cream/30" aria-hidden="true" />
       </div>
 
       <div className="container-wide">
         <Reveal className="relative -mt-24 md:-mt-32 mb-0">
-          <div className="bg-cream border border-line px-7 py-12 md:px-16 md:py-16 max-w-3xl mx-auto text-center shadow-soft">
+          <div className="bg-ivory border border-line px-7 py-12 md:px-16 md:py-16 max-w-3xl mx-auto text-center shadow-soft">
             <p className="eyebrow">{cta.eyebrow}</p>
             <h2 className="display-lg mt-5">
               {cta.headlineLine1}{" "}

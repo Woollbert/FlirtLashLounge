@@ -42,7 +42,7 @@ export default function GalleryGrid({ items = gallery }: { items?: GalleryItem[]
               className="absolute inset-x-0 bottom-0 p-5 opacity-0 translate-y-2 transition-[opacity,transform] duration-500 group-hover:opacity-100 group-hover:translate-y-0"
               style={{
                 background:
-                  "linear-gradient(to top, rgba(27,23,20,0.75), rgba(27,23,20,0))",
+                  "linear-gradient(to top, rgba(67,53,45,0.82), rgba(67,53,45,0))",
               }}
             >
               <span className="eyebrow eyebrow-light">{item.category}</span>

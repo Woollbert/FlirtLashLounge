@@ -12,20 +12,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Warm sand + cream, tuned for lash / skin / spa photography. The
-        // whole system is deliberately low-chroma so the only real color on
-        // a page comes from skin tones in the imagery.
-        cream: "#F7F2EB", // primary background
-        ivory: "#FCFAF7", // cards, raised surfaces
-        sand: "#EAE0D2", // alternating band, image mats
-        oat: "#DCCFBC", // deeper sand, arch fills
-        ink: "#1B1714", // near-black, headings + dark sections
-        espresso: "#2C2521", // body text on light (AAA)
-        mute: "#6A5E53", // secondary body text (AA on cream)
-        taupe: "#B79A7C", // decorative accent — rules, borders, large type
-        clay: "#795E44", // accent safe for small text on light (AA on cream AND sand)
-        rose: "#C9A493", // soft blush, used sparingly
-        line: "#E3D8C8", // hairline borders
+        // Coastal sand, from the two palettes Brooklyn sent: SOLEA STUDIO
+        // (Ivory Mist / Soft Sand / Stone Taupe / Cocoa / Espresso) and the
+        // Coastal Cove strip (Salted Sand / Cove Drift / Seaside Oak).
+        //
+        // There is deliberately no black in this file. The deepest value is
+        // espresso #43352D — a warm brown that reads as depth without the
+        // hard, cold edge she rejected in the first draft.
+        cream: "#F7F3EE", // Ivory Mist — primary background
+        ivory: "#FCFAF7", // lifted cards and panels
+        sand: "#E8DED2", // Soft Sand — alternating band
+        oat: "#D9D3C5", // Salted Sand — image mats, deeper band
+        shell: "#BCAE98", // Cove Drift — decorative rules and fills
+        taupe: "#B6A796", // Stone Taupe — decorative
+        ink: "#43352D", // Espresso — headings, buttons, the one deep tone
+        espresso: "#52443A", // body copy on light (AA on every ground)
+        mute: "#5E5145", // secondary copy (AA on every ground)
+        clay: "#6A5540", // Seaside Oak — small-caps accent (AA everywhere)
+        rose: "#C9A493", // soft blush, used very sparingly
+        line: "#E2DACE", // hairline borders
       },
       fontFamily: {
         // High-contrast fashion serif for display, geometric sans for UI,
