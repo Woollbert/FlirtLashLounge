@@ -88,9 +88,9 @@ Drop a real photo at the same path to replace one; nothing else changes —
 photograph that isn't there is a lie to anyone using a screen reader. When you
 add the real photo, describe it in the same field.
 
-`brooklyn-owner.jpg` and `team-brooklyn.jpg` are my best identification of
-Brooklyn from the library — worth a glance to confirm they are both actually
-her before launch.
+`brooklyn-owner.jpg` and `team-brooklyn.jpg` are now both her real headshot,
+the one she uses for Aviara Design Co, at her request. (The first draft used
+two portraits from the recovered library that turned out not to be her.)
 
 ---
 
